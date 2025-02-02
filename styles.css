@@ -76,7 +76,7 @@ h2 {
 
 .btn {
     background: var(--primary);
-    color: #000000;
+    color: #f9d0ff;
     padding: 14px 28px;
     text-decoration: none;
     border-radius: 8px;
@@ -253,12 +253,61 @@ footer {
 }
 
 footer a {
-    color: white;
+    color: rgb(75, 2, 63);
     text-decoration: none;
     padding: 0.5em 1em;
     transition: opacity 0.3s ease;
 }
 
 footer a:hover {
-    opacity: 0.8;
-} 
+    opacity: 0.3;
+}
+
+.clickable-header {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    position: relative;
+    padding: 2px 4px;
+}
+
+.clickable-header:hover {
+    transform: translateY(-3px);
+}
+
+.clickable-header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.clickable-header:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+h2 {
+    color: var(--primary);
+    font-size: 2em;
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+
+h2 a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+h2 a:hover {
+    transform: translateY(-2px);
+}

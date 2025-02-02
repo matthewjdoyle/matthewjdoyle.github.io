@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Physics & Maths Tutoring | [Your Name]</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; }
-        header { background: #0077b6; color: white; padding: 1em; }
-        section { padding: 20px; max-width: 800px; margin: auto; }
-        .btn { background: #0077b6; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background: #f4f4f4; }
+        header { background: #0077b6; color: white; padding: 1.5em; font-size: 1.5em; }
+        section { padding: 20px; max-width: 800px; margin: auto; background: white; margin-top: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .btn { background: #0077b6; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; }
+        .btn:hover { background: #005f8a; }
+        form { display: flex; flex-direction: column; align-items: center; }
+        input, textarea { width: 80%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #0077b6; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #005f8a; }
     </style>
 </head>
 <body>
@@ -22,7 +27,16 @@
     <section>
         <h2>Services</h2>
         <p>One-on-one tutoring for A-Level and GCSE students, focusing on physics and maths.</p>
-        <a href="#contact" class="btn">Book a Session</a>
+        <a href="#booking" class="btn">Book a Session</a>
+    </section>
+    <section id="booking">
+        <h2>Book a Session</h2>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSecZc7k8TaQDRC_4nyp2njzs9YiMsUthWq3zwhMFuC4xGKJ_Q/viewform?usp=header" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Preferred date and time" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
     </section>
     <section id="contact">
         <h2>Contact</h2>

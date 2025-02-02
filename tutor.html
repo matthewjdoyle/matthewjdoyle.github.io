@@ -32,34 +32,45 @@
                 </ul>
             </div>
             <div class="service-item">
-                <h3><i class="fas fa-atom"></i> GCSE Physics & Maths</h3>
-                <p>Building strong foundations for future success</p>
+                <h3><i class="fas fa-atom"></i> Tutorials</h3>
                 <ul>
-                    <li>Core concept mastery</li>
-                    <li>Practical applications</li>
-                    <li>Exam strategies</li>
+                    <li>1 hour sessions as standard, although extended sessions can be arranged</li>
+                    <li>Tools: Google Meet and a screen shared whiteboard</li>
+                    <li>Notes provided after each tutorial</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section>
-        <h2><i class="fas fa-calendar-alt"></i> Book a Session</h2>
+        <h2><i class="fas fa-calendar-alt"></i> Enquire</h2>
         <div class="button-group">
             <button onclick="toggleBookingForm()" class="btn">
-                <i class="fas fa-calendar-plus"></i> Request Booking
+                <i class="fas fa-calendar-plus"></i> Request Booking and Quote
             </button>
         </div>
         <div id="bookingForm" class="booking-form">
             <form>
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
-                <select required>
-                    <option value="">Select Subject</option>
+                
+                <select required placeholder="Subject">
                     <option value="physics">Physics</option>
                     <option value="maths">Mathematics</option>
-                    <option value="both">Both Subjects</option>
                 </select>
+
+                <select required placeholder="Level">
+                    <option value="A-Level">A-Level</option>
+                    <option value="GCSE">GCSE</option>
+                </select>
+
+                <input type="text" placeholder="Exam Board" required>
+
+                <h3>Preferred date and time for sessions</h3>
+                <input type="date" placeholder="Date" required>
+                <input type="time" placeholder="Time" required>
+
+
                 <textarea placeholder="Your Message" rows="4" required></textarea>
                 <button type="submit" class="btn">Send Enquiry</button>
             </form>

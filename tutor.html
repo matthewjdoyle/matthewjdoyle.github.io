@@ -53,25 +53,27 @@
             <form>
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
-                
+
                 <select required placeholder="Subject">
+                    <option value="">Select Subject</option>
                     <option value="physics">Physics</option>
                     <option value="maths">Mathematics</option>
                 </select>
 
                 <select required placeholder="Level">
+                    <option value="">Select Level of Study</option>
                     <option value="A-Level">A-Level</option>
                     <option value="GCSE">GCSE</option>
                 </select>
 
                 <input type="text" placeholder="Exam Board" required>
 
-                <h3>Preferred date and time for sessions</h3>
+                <p>Preferred date and time for first session</p>
                 <input type="date" placeholder="Date" required>
                 <input type="time" placeholder="Time" required>
 
-
-                <textarea placeholder="Your Message" rows="4" required></textarea>
+                <p>Any additional information</p>
+                <textarea placeholder="Your Message" rows="4"></textarea>
                 <button type="submit" class="btn">Send Enquiry</button>
             </form>
         </div>

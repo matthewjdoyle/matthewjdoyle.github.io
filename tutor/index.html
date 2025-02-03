@@ -49,31 +49,31 @@
             <i class="fas fa-calendar-plus"></i> Request Booking and Quote
         </a></h2>
         <div id="bookingForm" class="booking-form">
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
+            <form action="https://formspree.io/f/mvgzrwlb" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
 
-                <select required placeholder="Subject">
+                <select name="subject" required>
                     <option value="">Select Subject</option>
                     <option value="physics">Physics</option>
                     <option value="maths">Mathematics</option>
                 </select>
 
-                <select required placeholder="Level">
+                <select name="level" required>
                     <option value="">Select Level of Study</option>
                     <option value="A-Level">A-Level</option>
                     <option value="GCSE">GCSE</option>
                 </select>
 
-                <input type="text" placeholder="Exam Board" required>
+                <input type="text" name="exam_board" placeholder="Exam Board" required>
 
                 <p>Preferred date and time for first session</p>
-                <input type="date" placeholder="Date" required>
-                <input type="time" placeholder="Time" required>
+                <input type="date" name="preferred_date" placeholder="Date" required>
+                <input type="time" name="preferred_time" placeholder="Time" required>
 
                 <p>Any additional information</p>
-                <textarea placeholder="Your Message" rows="4"></textarea>
-                <button type="submit" class="clickable-header">Send Enquiry</button>
+                <textarea name="message" placeholder="Your Message" rows="4"></textarea>
+                <button type="submit" class="clickable-header">Request Tutoring Session</button>
             </form>
         </div>
     </section>

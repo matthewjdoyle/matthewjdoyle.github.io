@@ -307,3 +307,115 @@ footer a:hover {
     transform: scaleX(1);
     transform-origin: left;
 }
+
+.publication-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.publication-item {
+    padding: 1.2em;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.publication-item:hover {
+    transform: translateY(-2px);
+}
+
+.publication-item h3 {
+    color: var(--primary);
+    margin-top: 0;
+    font-size: 1em;
+}
+
+.publication-item .authors {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin: 0.5em 0;
+    font-size: 0.9em;
+}
+
+.publication-item .journal {
+    color: var(--text);
+    margin: 0.5em 0;
+    font-size: 0.9em;
+}
+
+.doi-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.8em;
+    transition: opacity 0.3s ease;
+}
+
+.doi-link:hover {
+    opacity: 0.8;
+}
+
+.award-badge {
+    background: var(--primary);
+    color: var(--background);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.7em;
+    font-weight: 500;
+    margin-top: 0.5em;
+    display: inline-block;
+}
+
+.publication-item.award {
+    border: 1px solid var(--primary);
+    background: rgba(187, 134, 252, 0.05);
+}
+
+/* Section toggle styles */
+.section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.section-toggle i:first-child {
+    margin-right: 0.5em;
+    width: 1.5em;
+}
+
+.section-toggle .fa-chevron-down {
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+    margin-left: auto;
+}
+
+.section-content {
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    max-height: 2000px; /* Adjust based on your content */
+}
+
+.section-content.collapsed {
+    max-height: 0;
+}
+
+/* Footer social links */
+footer a {
+    margin: 0 10px;
+}
+
+footer .fa-orcid {
+    color: #A6CE39;
+}
+
+footer .fa-github {
+    color: #ffffff;
+}
+
+.publication-year {
+    color: var(--primary);
+    font-weight: 500;
+    display: inline-block;
+    margin-left: 0.5em;
+}

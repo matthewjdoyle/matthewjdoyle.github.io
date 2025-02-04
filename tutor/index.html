@@ -51,6 +51,14 @@
         </a></h2>
         <div id="bookingForm" class="booking-form">
             <form id="tutorForm" onsubmit="handleSubmit(event)">
+
+                <p class="form-intro">
+                    Please fill out the form below to request a tutoring session.<br>
+                    I will get back to you as soon as possible.<br>
+                    <em>Average response time: 48 hours</em>
+                </p>
+
+
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
 
@@ -58,15 +66,18 @@
                     <option value="">Select Subject</option>
                     <option value="physics">Physics</option>
                     <option value="maths">Mathematics</option>
+                    <option value="other">Other</option>
                 </select>
 
                 <select name="level" required>
                     <option value="">Select Level of Study</option>
                     <option value="A-Level">A-Level</option>
                     <option value="GCSE">GCSE</option>
+                    <option value="University">University</option>
+                    <option value="other">Other</option>
                 </select>
 
-                <input type="text" name="exam_board" placeholder="Exam Board" required>
+                <input type="text" name="exam_board" placeholder="Exam Board (e.g. OCR, AQA, Edexcel, etc.)" required>
 
                 <p>Preferred date and time for first session</p>
                 <input type="date" name="preferred_date" placeholder="Date" required>

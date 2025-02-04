@@ -1,11 +1,14 @@
 :root {
     --background: #121212;
     --surface: #1e1e1e;
-    --primary: #bb86fc;
-    --primary-hover: #9965dd;
+    --primary: #3e2c48;
+    --primary-hover: #553d62;
     --text: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.7);
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --orcid-green: #A6CE39;
+    --orcid-hover: #95b934;
+    --footer-color: #463854;
 }
 
 body {
@@ -96,7 +99,7 @@ h2 {
 .btn:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(187, 134, 252, 0.2);
+    box-shadow: 0 6px 12px rgba(74, 0, 114, 0.2);
 }
 
 .btn::after {
@@ -114,6 +117,67 @@ h2 {
 
 .btn:hover::after {
     transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-external {
+    background: #4a9eff;
+    color: #ffffff;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-external:hover {
+    background: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(74, 158, 255, 0.2);
+}
+
+.btn-external::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.btn-external:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-orcid {
+    background: var(--orcid-green);
+    color: #ffffff;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-orcid:hover {
+    background: var(--orcid-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(166, 206, 57, 0.2);
 }
 
 .services-grid {
@@ -259,7 +323,7 @@ form {
 }
 
 footer {
-    background: var(--primary);
+    background: var(--footer-color);
     color: white;
     padding: 1em;
     margin-top: 2em;

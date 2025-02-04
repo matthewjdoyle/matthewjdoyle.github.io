@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Speed constant
     const SPEED = {
-        move: 15, // Speed of horizontal movement
-        jump: -20 // Increased jump power for higher jumps
+        move: 20, // Speed of horizontal movement
+        jump: -100 // Increased jump power for higher jumps
     };
 
     // Add this near the top of the file, after the colors object and before the ball object
@@ -245,4 +245,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Start the game
     gameLoop();
-}); 
+    initializeGame(); // Call the function to show the game section
+});
+
+function initializeGame() {
+    // Show the game section after the script is loaded
+    document.getElementById('game-section').style.display = 'block';
+} 

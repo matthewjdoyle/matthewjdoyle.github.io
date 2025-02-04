@@ -50,7 +50,7 @@
             <i class="fas fa-calendar-plus"></i> Request Booking and Quote
         </a></h2>
         <div id="bookingForm" class="booking-form">
-            <form action="https://formspree.io/f/mvgzrwlb" method="POST">
+            <form id="tutorForm" onsubmit="handleSubmit(event)">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
 
@@ -58,18 +58,15 @@
                     <option value="">Select Subject</option>
                     <option value="physics">Physics</option>
                     <option value="maths">Mathematics</option>
-                    <option value="other">Other</option>
                 </select>
 
                 <select name="level" required>
                     <option value="">Select Level of Study</option>
                     <option value="A-Level">A-Level</option>
                     <option value="GCSE">GCSE</option>
-                    <option value="University">University</option>
-                    <option value="Other">Other</option>
                 </select>
 
-                <input type="text" name="exam_board" placeholder="Exam Board (e.g. AQA, Edexcel, OCR...)" required>
+                <input type="text" name="exam_board" placeholder="Exam Board" required>
 
                 <p>Preferred date and time for first session</p>
                 <input type="date" name="preferred_date" placeholder="Date" required>
@@ -92,6 +89,42 @@
         function toggleBookingForm() {
             const form = document.getElementById('bookingForm');
             form.classList.toggle('active');
+        }
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Create data object
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                // Submit to both Formspree and Google Sheets
+                await Promise.all([
+                    // Formspree submission
+                    fetch('https://formspree.io/f/mvgzrwlb', {
+                        method: 'POST',
+                        body: formData
+                    }),
+                    // Google Sheets submission
+                    fetch('https://script.google.com/macros/s/AKfycbwf_QfkC8XZDsagJY3BrRMNFFwCFj2Dl1pnI41M4jW0Jcc6hQEjnkXBhmzTsUDb76mRog/exec', {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Origin': window.location.origin
+                        }
+                    })
+                ]);
+
+                alert('Booking request submitted successfully!');
+                form.reset();
+                toggleBookingForm(); // Close the form after successful submission
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting your request. Please try again.');
+            }
         }
     </script>
 </body>

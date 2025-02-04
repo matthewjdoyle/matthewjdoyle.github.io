@@ -652,3 +652,42 @@ header {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.btn-github {
+    background: #24292e;
+    color: #ffffff;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-github:hover {
+    background: #2f363d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-github::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.btn-github:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}

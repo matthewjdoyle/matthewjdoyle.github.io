@@ -691,3 +691,19 @@ header {
 .btn-github:hover::after {
     transform: translate(-50%, -50%) scale(1);
 }
+
+.engaging-text {
+    background: rgba(44, 1, 77, 0.1); /* Light background for contrast */
+    padding: 20px; /* Space around the text */
+    border-radius: 8px; /* Rounded corners */
+    margin: 20px 0; /* Space above and below */
+    text-align: center; /* Center the text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.engaging-text p {
+    font-size: 1.1em; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    color: var(--text); /* Use your primary light color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add text shadow */
+}

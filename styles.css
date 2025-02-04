@@ -579,3 +579,32 @@ footer .fa-github {
         padding-right: 0;
     }
 }
+
+.open-to-work {
+    border: 2px solid var(--primary-light);
+    background: linear-gradient(45deg, var(--surface), rgba(129, 105, 142, 0.1));
+    position: relative;
+    overflow: hidden;
+}
+
+.open-to-work::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-light);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Add this class to hide the section when needed */
+.hidden {
+    display: none;
+}

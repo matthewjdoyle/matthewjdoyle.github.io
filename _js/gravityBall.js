@@ -33,6 +33,20 @@ document.addEventListener('DOMContentLoaded', function() {
         jump: -20 // Increased jump power for higher jumps
     };
 
+    // Add this near the top of the file, after the colors object and before the ball object
+    const initialState = {
+        x: canvas.width / 2,
+        y: canvas.height - 30,
+        radius: 15,
+        vx: 0,
+        speed: 1.5,
+        gravity: 0.2,
+        jumpPower: -20,
+        isJumping: false,
+        timeRemaining: 30,
+        lastTimestamp: 0
+    };
+
     // Initial game state
     let ball = {
         x: canvas.width / 2,
@@ -54,14 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let isPaused = true;
 
     function resetGame() {
-        ball = { ...initialState };
+        ball = {
+            x: initialState.x,
+            y: initialState.y,
+            radius: initialState.radius,
+            vx: initialState.vx,
+            speed: initialState.speed,
+            gravity: initialState.gravity,
+            jumpPower: initialState.jumpPower,
+            isJumping: initialState.isJumping,
+            timeRemaining: initialState.timeRemaining,
+            lastTimestamp: initialState.lastTimestamp
+        };
         stars = [];
         obstacles = [];
         score = 0;
         gameOver = false;
         isPaused = true;
-        ball.timeRemaining = 30;
-        ball.lastTimestamp = 0;
         scoreValue.textContent = '0';
         timeValue.textContent = '30';
         togglePauseButton.textContent = 'Start Game';
@@ -167,6 +190,9 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.textAlign = 'center';
             ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2);
             ctx.fillText(`Final Score: ${score}`, canvas.width / 2, canvas.height / 2 + 40);
+            
+            // Show the restart button when the game is over
+            restartButton.style.display = 'inline-block';
             return;
         }
 

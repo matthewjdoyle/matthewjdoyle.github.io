@@ -107,34 +107,38 @@
             const form = event.target;
             const formData = new FormData(form);
             
-            // Create data object
-            const data = Object.fromEntries(formData.entries());
-            
             try {
-                // Submit to both Formspree and Google Sheets
-                await Promise.all([
-                    // Formspree submission
-                    fetch('https://formspree.io/f/mvgzrwlb', {
-                        method: 'POST',
-                        body: formData
-                    }),
-                    // Google Sheets submission
-                    fetch('https://script.google.com/macros/s/AKfycbwf_QfkC8XZDsagJY3BrRMNFFwCFj2Dl1pnI41M4jW0Jcc6hQEjnkXBhmzTsUDb76mRog/exec', {
-                        method: 'POST',
-                        body: JSON.stringify(data),
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Origin': window.location.origin
-                        }
-                    })
-                ]);
+                // Show loading state
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Submitting...';
+                submitButton.disabled = true;
 
-                alert('Booking request submitted successfully!');
-                form.reset();
-                toggleBookingForm(); // Close the form after successful submission
+                // Submit to Formspree only
+                const response = await fetch('https://formspree.io/f/mvgzrwlb', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // Check if submission was successful
+                if (response.ok) {
+                    alert('Booking request submitted successfully!');
+                    form.reset();
+                    toggleBookingForm();
+                } else {
+                    throw new Error('Form submission failed with status: ' + response.status);
+                }
             } catch (error) {
                 console.error('Error:', error);
-                alert('There was an error submitting your request. Please try again.');
+                // Only show error alert if the form wasn't actually submitted
+                if (!error.message.includes('Form submission failed')) {
+                    alert('There was an error submitting your request. Please try again.');
+                }
+            } finally {
+                // Reset button state
+                const submitButton = form.querySelector('button[type="submit"]');
+                submitButton.textContent = 'Request Tutoring Session';
+                submitButton.disabled = false;
             }
         }
     </script>

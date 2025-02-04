@@ -46,12 +46,14 @@ header h1 {
     font-weight: 700;
     letter-spacing: -0.5px;
     color: var(--text);
+    padding-left: 2.0rem;
 }
 
 .subtitle {
     color: var(--primary-light);
     font-size: 1.2em;
     margin-top: 0.5em;
+    padding-left: 2.0rem;
 }
 
 section {
@@ -621,4 +623,32 @@ footer .fa-github {
 
 .cv-list strong {
     color: var(--accent-color);
+}
+
+header {
+    position: relative;
+}
+
+.home-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background: var(--primary);
+    color: #f9d0ff;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

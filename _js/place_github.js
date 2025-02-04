@@ -1,6 +1,5 @@
 // Wait for the DOM to fully load
 document.addEventListener('DOMContentLoaded', function() {
-  // Replace 'matthewjdoyle' with your GitHub username if necessary
   const username = 'matthewjdoyle';
   const apiURL = `https://api.github.com/users/${username}`;
 

@@ -408,9 +408,23 @@ footer a:hover {
 }
 
 .publication-item h3 {
-    color: var(--primary);
-    margin-top: 0;
-    font-size: 1em;
+    color: var(--primary-light);
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.publication-item:hover h3 {
+    color: var(--accent);
+}
+
+.publication-item.award h3 {
+    color: var(--accent);
+}
+
+.publication-item.award:hover h3 {
+    color: var(--accent-hover);
 }
 
 .publication-item .authors {
@@ -426,19 +440,26 @@ footer a:hover {
     font-size: 0.9em;
 }
 
+.publication-year {
+    color: var(--primary-light);
+    font-weight: 500;
+    display: inline-block;
+    margin-left: 0.5em;
+}
+
 .doi-link {
-    color: var(--primary);
+    color: var(--primary-light);
     text-decoration: none;
     font-size: 0.8em;
-    transition: opacity 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .doi-link:hover {
-    opacity: 0.8;
+    color: var(--accent);
 }
 
 .award-badge {
-    background: var(--primary);
+    background: var(--primary-light);
     color: var(--background);
     padding: 3px 6px;
     border-radius: 4px;
@@ -451,6 +472,11 @@ footer a:hover {
 .publication-item.award {
     border: 1px solid var(--primary);
     background: rgba(187, 134, 252, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.publication-item.award:hover {
+    background: rgba(187, 134, 252, 0.1);
 }
 
 /* Section toggle styles */
@@ -493,13 +519,6 @@ footer .fa-orcid {
 
 footer .fa-github {
     color: #ffffff;
-}
-
-.publication-year {
-    color: var(--primary);
-    font-weight: 500;
-    display: inline-block;
-    margin-left: 0.5em;
 }
 
 .feature-section {

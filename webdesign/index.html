@@ -16,6 +16,29 @@
         <p class="subtitle">Professional Web Solutions</p>
     </header>
 
+    <section id="game-section" style="text-align: center;">
+        <h2 class="clickable-header" onclick="toggleGameVisibility();"><i class="fas fa-gamepad"></i> Catch the Stars </i></h2>
+        <div id="gameContent" style="display: none;">
+            <p class="subtitle">A simple JavaScript game to pass the time</p>
+            <canvas id="gameCanvas" width="400" height="300" style="border: 1px solid rgba(255, 255, 255, 0.1); margin: 0 auto;"></canvas>
+            <p>Use the left and right arrow keys to move the ball and collect stars!</p>
+            <div class="game-controls">
+                <button id="togglePauseButton" class="btn">Start Game</button>
+                <button id="restartButton" class="btn" style="display: none;">Restart Game</button>
+            </div>
+            <div id="gameStats" style="display: none;">
+                <div id="scoreDisplay">Score: <span id="scoreValue">0</span></div>
+                <div id="timerDisplay">Time: <span id="timeValue">30</span>s</div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleGameVisibility() {
+            const gameContent = document.getElementById('gameContent');
+            gameContent.style.display = gameContent.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
     <section>
         <h2><i class="fas fa-code"></i> Services</h2>
 
@@ -75,6 +98,7 @@
         </div>
     </section>
 
+
     <footer>
         <!-- Navigation Links -->
         <a href="../"><i class="fas fa-home"></i> Home</a>
@@ -133,5 +157,6 @@
             }
         }
     </script>
+    <script src="../_js/gravityBall.js"></script>
 </body>
 </html> 

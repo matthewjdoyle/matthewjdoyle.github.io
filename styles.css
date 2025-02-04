@@ -707,3 +707,55 @@ header {
     color: var(--text); /* Use your primary light color */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add text shadow */
 }
+
+.github-profile-container {
+    background: #0d1117; /* GitHub's dark theme background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the content */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-top: 1em; /* Space above the section */
+    text-align: center; /* Center the text */
+}
+
+.github-profile-container img {
+    border-radius: 50%; /* Circular avatar */
+    margin-bottom: 1em; /* Space below the image */
+}
+
+.github-profile-container h3 {
+    margin: 0.5em 0; /* Space above and below the name */
+    font-size: 1.5em; /* Font size for the name */
+    color: var(--text); /* Text color */
+}
+
+.github-profile-container p {
+    margin: 0.5em 0; /* Space above and below paragraphs */
+    color: var(--text); /* Text color */
+}
+
+.github-profile-container a {
+    color: var(--primary-light); /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.github-profile-container a:hover {
+    color: var(--accent); /* Change color on hover */
+}
+
+#game-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3em;
+    max-width: 900px;
+    margin: 2em auto;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}

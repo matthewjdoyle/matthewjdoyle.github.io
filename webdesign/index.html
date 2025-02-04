@@ -17,7 +17,7 @@
     </header>
 
     <section id="game-section" style="text-align: center;">
-        <h2 class="clickable-header" onclick="toggleGameVisibility();"><i class="fas fa-gamepad"></i> Catch the Stars </i></h2>
+        <h2 class="clickable-header" onclick="toggleGameVisibility();"><i class="fas fa-gamepad"></i> Catch the Stars</h2>
         <div id="gameContent" style="display: none;">
             <p class="subtitle">A simple JavaScript game to pass the time</p>
             <canvas id="gameCanvas" width="400" height="300" style="border: 1px solid rgba(255, 255, 255, 0.1); margin: 0 auto;"></canvas>
@@ -32,6 +32,7 @@
             </div>
         </div>
     </section>
+    <script src="../_js/gravityBall.js" defer></script>
     <script>
         function toggleGameVisibility() {
             const gameContent = document.getElementById('gameContent');
@@ -157,6 +158,35 @@
             }
         }
     </script>
-    <script src="../_js/gravityBall.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('gameCanvas');
+            if (!canvas) {
+                console.error('Canvas element not found');
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Could not get 2D context');
+                return;
+            }
+            
+            // Initialize other game elements
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreValue = document.getElementById('scoreValue');
+            const timeValue = document.getElementById('timeValue');
+            const togglePauseButton = document.getElementById('togglePauseButton');
+            const restartButton = document.getElementById('restartButton');
+            const gameStats = document.getElementById('gameStats');
+            
+            // Continue with game initialization
+        });
+    </script>
+    <script>
+        window.addEventListener('error', function(e) {
+            console.error('Script error:', e);
+        });
+    </script>
 </body>
 </html> 

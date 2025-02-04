@@ -2,12 +2,13 @@
     --background: #121212;
     --surface: #1e1e1e;
     --primary: #3e2c48;
+    --primary-light: #81698e;
     --primary-hover: #553d62;
     --text: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.7);
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --orcid-green: #A6CE39;
-    --orcid-hover: #95b934;
+    --orcid-green: #708b25;
+    --orcid-hover: #90b629;
     --footer-color: #463854;
 }
 
@@ -44,10 +45,11 @@ header h1 {
     font-size: 2.8em;
     font-weight: 700;
     letter-spacing: -0.5px;
+    color: var(--primary-light);
 }
 
 .subtitle {
-    color: var(--text-secondary);
+    color: var(--primary-light);
     font-size: 1.2em;
     margin-top: 0.5em;
 }
@@ -66,7 +68,7 @@ section {
 }
 
 h2 {
-    color: var(--primary);
+    color: var(--primary-light);
     font-size: 2em;
     margin-bottom: 1em;
     font-weight: 600;
@@ -482,4 +484,63 @@ footer .fa-github {
     font-weight: 500;
     display: inline-block;
     margin-left: 0.5em;
+}
+
+.feature-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    align-items: center;
+    padding: 3em;
+    max-width: 1200px;
+    margin: 2em auto;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.feature-content {
+    padding-right: 2em;
+}
+
+.feature-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-light);
+}
+
+.image-placeholder i {
+    font-size: 4em;
+    margin-bottom: 1em;
+}
+
+.image-placeholder p {
+    font-size: 1.1em;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .feature-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-content {
+        padding-right: 0;
+    }
 }

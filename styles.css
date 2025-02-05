@@ -19,6 +19,7 @@ body {
     line-height: 1.6;
     color: var(--text);
     background: var(--background);
+    font-size: 16px; /* Base font size */
 }
 
 header {
@@ -42,7 +43,7 @@ header::after {
 
 header h1 {
     margin: 0;
-    font-size: 2.8em;
+    font-size: 2.5rem; /* Responsive heading size */
     font-weight: 700;
     letter-spacing: -0.5px;
     color: var(--text);
@@ -71,14 +72,14 @@ section {
 
 h2 {
     color: var(--primary-light);
-    font-size: 2em;
+    font-size: 2rem; /* Responsive heading size */
     margin-bottom: 1em;
     font-weight: 600;
 }
 
 h3 {
     color: var(--primary-light);
-    font-size: 1.5em;
+    font-size: 1.75rem; /* Responsive heading size */
     margin-bottom: 1em;
     font-weight: 600;
 }
@@ -91,10 +92,9 @@ h3 {
     margin: 2em 0;
 }
 
-.btn {
-    background: var(--primary);
-    color: #f9d0ff;
-    padding: 14px 28px;
+.btn, .btn-external, .btn-orcid, .btn-github {
+    background: #4b2c5e; /* Dark purple tone */
+    padding: 1em 2em; /* Responsive padding */
     text-decoration: none;
     border-radius: 8px;
     display: inline-block;
@@ -102,18 +102,27 @@ h3 {
     border: none;
     cursor: pointer;
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: 1rem; /* Responsive font size */
+    color: var(--text);
     position: relative;
     overflow: hidden;
 }
 
-.btn:hover {
-    background: var(--primary-hover);
+.btn-external {
+    background: #0077b5; /* LinkedIn blue */
+}
+
+.btn-orcid {
+    background: var(--orcid-green); /* Use existing orcid green variable */
+}
+
+.btn:hover, .btn-external:hover, .btn-orcid:hover, .btn-github:hover {
+    background: #5a3e7e; /* Slightly lighter purple for hover effect */
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(74, 0, 114, 0.2);
 }
 
-.btn::after {
+.btn::after, .btn-external::after, .btn-orcid::after, .btn-github::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -126,69 +135,8 @@ h3 {
     transition: transform 0.3s ease;
 }
 
-.btn:hover::after {
+.btn:hover::after, .btn-external:hover::after, .btn-orcid:hover::after, .btn-github:hover::after {
     transform: translate(-50%, -50%) scale(1);
-}
-
-.btn-external {
-    background: #4a9eff;
-    color: #ffffff;
-    padding: 14px 28px;
-    text-decoration: none;
-    border-radius: 8px;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1em;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-external:hover {
-    background: #3182ce;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(74, 158, 255, 0.2);
-}
-
-.btn-external::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-
-.btn-external:hover::after {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.btn-orcid {
-    background: var(--orcid-green);
-    color: #ffffff;
-    padding: 14px 28px;
-    text-decoration: none;
-    border-radius: 8px;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1em;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-orcid:hover {
-    background: var(--orcid-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(166, 206, 57, 0.2);
 }
 
 .services-grid {
@@ -230,7 +178,7 @@ input, textarea, select {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     color: var(--text);
-    font-size: 1rem;
+    font-size: 1rem; /* Responsive font size */
     transition: border-color 0.3s ease;
 }
 
@@ -264,13 +212,40 @@ select {
     padding-right: 2.5em;
 }
 
+@media (max-width: 1200px) {
+    body {
+        font-size: 15px; /* Slightly smaller font size for medium screens */
+    }
+
+    h1 {
+        font-size: 2.2rem; /* Adjust heading size */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Adjust heading size */
+    }
+
+    h3 {
+        font-size: 1.6rem; /* Adjust heading size */
+    }
+
+    .btn, .btn-external, .btn-orcid, .btn-github {
+        padding: 0.8em 1.5em; /* Adjust button padding */
+        font-size: 0.9rem; /* Adjust button font size */
+    }
+}
+
 @media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
     header {
         padding: 2em 1em;
     }
 
     header h1 {
-        font-size: 2em;
+        font-size: 2rem; /* Adjust heading size */
     }
 
     section {
@@ -282,9 +257,44 @@ select {
         flex-direction: column;
     }
 
-    .btn {
+    .btn, .btn-external, .btn-orcid, .btn-github {
         width: 100%;
         text-align: center;
+        padding: 0.6em 1.2em; /* Adjust button padding */
+        font-size: 0.8rem; /* Adjust button font size */
+    }
+
+    /* Adjust input and textarea sizes */
+    input, textarea, select {
+        font-size: 0.9rem; /* Adjust input font size */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 13px; /* Even smaller font size for very small screens */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Adjust heading size */
+    }
+
+    h2 {
+        font-size: 1.4rem; /* Adjust heading size */
+    }
+
+    h3 {
+        font-size: 1.2rem; /* Adjust heading size */
+    }
+
+    .btn, .btn-external, .btn-orcid, .btn-github {
+        padding: 0.5em 1em; /* Adjust button padding */
+        font-size: 0.7rem; /* Adjust button font size */
+    }
+
+    /* Adjust input and textarea sizes */
+    input, textarea, select {
+        font-size: 0.8rem; /* Adjust input font size */
     }
 }
 

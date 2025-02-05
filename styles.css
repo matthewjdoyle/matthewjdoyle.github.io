@@ -558,11 +558,8 @@ footer .fa-github {
 .feature-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1/1;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    max-width: none;
     overflow: hidden;
-
 }
 
 .image-placeholder {

@@ -86,57 +86,72 @@ h3 {
 
 .button-group {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 1rem 1rem;
+    justify-content: flex-start;
+    margin: 1.5rem 0;
 }
 
-.btn, .btn-external, .btn-orcid, .btn-github {
-    background: var(--primary-light); /* Dark purple tone */
-    padding: 1rem 1.5rem; /* Responsive padding */
-    text-decoration: none;
-    border-radius: 4px;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
+.btn, .btn-external, .btn-orcid, .btn-github, .btn-internal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    min-width: 15px;
+    font-size: 0.95rem;
     font-weight: 500;
-    font-size: 1rem; /* Responsive font size */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--surface);
     color: var(--text);
     position: relative;
     overflow: hidden;
 }
 
+.btn i, .btn-external i, .btn-orcid i, .btn-github i, .btn-internal i {
+    font-size: 1em;
+}
+
+.btn:hover, .btn-internal:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .btn-external {
-    background: #0077b5; /* LinkedIn blue */
+    background: #0077b5;
+    color: white;
+}
+
+.btn-external:hover {
+    background: #0088cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
 }
 
 .btn-orcid {
-    background: var(--orcid-green); /* Use existing orcid green variable */
+    background: var(--orcid-green);
+    color: white;
 }
 
-.btn:hover, .btn-external:hover, .btn-orcid:hover, .btn-github:hover {
-    background: #5a3e7e; /* Slightly lighter purple for hover effect */
+.btn-orcid:hover {
+    background: var(--orcid-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(74, 0, 114, 0.2);
+    box-shadow: 0 4px 12px rgba(112, 139, 37, 0.3);
 }
 
-.btn::after, .btn-external::after, .btn-orcid::after, .btn-github::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
+.btn-github {
+    background: #24292e;
+    color: white;
 }
 
-.btn:hover::after, .btn-external:hover::after, .btn-orcid:hover::after, .btn-github:hover::after {
-    transform: translate(-50%, -50%) scale(1);
+.btn-github:hover {
+    background: #2f363d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(36, 41, 46, 0.3);
 }
 
 .services-grid {
@@ -261,7 +276,7 @@ select {
     .btn, .btn-external, .btn-orcid, .btn-github {
         width: 100%;
         text-align: center;
-        padding: 0.6em 1.2em; /* Adjust button padding */
+        padding: 0.5em 0.8em; /* Adjust button padding */
         font-size: 0.8rem; /* Adjust button font size */
     }
 
@@ -289,7 +304,7 @@ select {
     }
 
     .btn, .btn-external, .btn-orcid, .btn-github {
-        padding: 0.5em 1em; /* Adjust button padding */
+        padding: 0.5rem 0.8rem; /* Adjust button padding */
         font-size: 0.7rem; /* Adjust button font size */
     }
 
@@ -663,49 +678,10 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-github {
-    background: #24292e;
-    color: #ffffff;
-    padding: 14px 22px;
-    text-decoration: none;
-    border-radius: 8px;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-github:hover {
-    background: #2f363d;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.btn-github::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-
-.btn-github:hover::after {
-    transform: translate(-50%, -50%) scale(1);
-}
-
 .btn-internal {
     position: relative;
     background: #693e84; /* Match the regular button color */
-    padding: 1em 2em; /* Padding for the button */
+    padding: .8rem 1.2rem; /* Padding for the button */
     text-decoration: none; /* No underline */
     border-radius: 8px; /* Rounded corners */
     display: inline-block; /* Inline block for button layout */
@@ -744,25 +720,39 @@ header {
 
 .tooltip {
     visibility: hidden;
-    width: 120px;
-    background-color: var(--primary);
-    color: var(--text);
-    font-weight: 500;
+    width: auto;
+    min-width: 120px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-weight: 400;
+    font-size: 0.85rem;
     text-align: center;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
     position: absolute;
     z-index: 1;
     bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition: all 0.2s ease-in-out;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
 }
 
 .btn-internal:hover .tooltip {
     visibility: visible;
     opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
 }
 
 .engaging-text {

@@ -105,7 +105,7 @@ h3 {
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: var(--surface);
+    background: var(--background);
     color: var(--text);
     position: relative;
     overflow: hidden;
@@ -560,12 +560,17 @@ footer .fa-github {
     padding: 3em;
     max-width: 1200px;
     margin: 2em auto;
-    background: var(--surface);
+    background: var(--background);
+    background-image: url("feature-background.png");
+    background-repeat: repeat;
+    background-size: 6% 9%;
     border-radius: 16px;
     box-shadow: var(--shadow);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border: 0px solid rgba(255, 255, 255, 0.1);
     opacity: 0;
     transform: translateY(20px);
+
     animation: fadeIn 0.5s ease forwards;
 }
 
@@ -615,14 +620,16 @@ footer .fa-github {
     background: linear-gradient(45deg, var(--surface), rgba(129, 105, 142, 0.1));
     position: relative;
     overflow: hidden;
+    max-width: 620px;
 }
+
 
 .open-to-work::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 0px;
     height: 100%;
     background: var(--primary-light);
     animation: pulse 2s infinite;
@@ -725,7 +732,7 @@ header {
     visibility: hidden;
     width: auto;
     min-width: 120px;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(37, 19, 45, 0.9);
     color: white;
     font-weight: 400;
     font-size: 0.85rem;
@@ -749,7 +756,7 @@ header {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+    border-color: rgba(4, 39, 45, 0.9) transparent transparent transparent;
 }
 
 .btn-internal:hover .tooltip {

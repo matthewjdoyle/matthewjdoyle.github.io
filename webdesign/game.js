@@ -67,6 +67,50 @@ document.addEventListener('DOMContentLoaded', function() {
     let gameOver = false;
     let isPaused = true;
 
+    // Create arrow elements using img tags
+    const leftArrow = document.createElement('img');
+    const rightArrow = document.createElement('img');
+
+    // Create a container for the canvas and arrows
+    const gameContainer = document.createElement('div');
+    gameContainer.style.position = 'relative';
+    gameContainer.style.width = 'fit-content';
+    gameContainer.style.margin = '0 auto';
+
+    // Move canvas into container
+    canvas.parentNode.insertBefore(gameContainer, canvas);
+    gameContainer.appendChild(canvas);
+
+    // Set up the left arrow
+    leftArrow.src = './left-arrow.svg';
+    leftArrow.style.position = 'absolute';
+    leftArrow.style.left = '12px';
+    leftArrow.style.bottom = '20px';
+    leftArrow.style.width = '30px';
+    leftArrow.style.height = '30px';
+    leftArrow.style.opacity = '0.5';
+    leftArrow.style.display = 'none';
+    leftArrow.style.zIndex = '1000';
+    leftArrow.style.transition = 'opacity 0.2s ease';
+    leftArrow.style.userSelect = 'none'; // Prevent text selection
+
+    // Set up the right arrow
+    rightArrow.src = './right-arrow.svg';
+    rightArrow.style.position = 'absolute';
+    rightArrow.style.right = '12px';
+    rightArrow.style.bottom = '20px';
+    rightArrow.style.width = '30px';
+    rightArrow.style.height = '30px';
+    rightArrow.style.opacity = '0.5';
+    rightArrow.style.display = 'none';
+    rightArrow.style.zIndex = '1000';
+    rightArrow.style.transition = 'opacity 0.2s ease';
+    rightArrow.style.userSelect = 'none'; // Prevent text selection
+
+    // Append arrows to the game container
+    gameContainer.appendChild(leftArrow);
+    gameContainer.appendChild(rightArrow);
+
     function resetGame() {
         ball = {
             x: initialState.x,
@@ -215,11 +259,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isPaused && !gameOver) {
             if (event.key === 'ArrowLeft') {
                 ball.x = Math.max(ball.radius, ball.x - SPEED.move);
+                leftArrow.style.display = 'block';
+                leftArrow.style.opacity = '1';
+                rightArrow.style.display = 'none';
             } else if (event.key === 'ArrowRight') {
                 ball.x = Math.min(canvas.width - ball.radius, ball.x + SPEED.move);
+                rightArrow.style.display = 'block';
+                rightArrow.style.opacity = '1';
+                leftArrow.style.display = 'none';
             } else if (event.key === 'ArrowUp' && !ball.isJumping) {
                 ball.isJumping = true;
-                ball.y += SPEED.jump; // Allow jumping while moving
+                ball.y += SPEED.jump;
             }
         }
     });
@@ -241,6 +291,66 @@ document.addEventListener('DOMContentLoaded', function() {
     restartButton.addEventListener('click', () => {
         resetGame(); // Call resetGame function to restart the game
         gameLoop(); // Restart the game loop after resetting
+    });
+
+    // Update touch controls
+    document.addEventListener('touchstart', (event) => {
+        if (!isPaused && !gameOver) {
+            const touch = event.touches[0];
+            if (touch.clientX < canvas.width / 2) {
+                ball.x = Math.max(ball.radius, ball.x - SPEED.move);
+                leftArrow.style.display = 'block';
+                leftArrow.style.opacity = '1';
+                rightArrow.style.display = 'none';
+            } else {
+                ball.x = Math.min(canvas.width - ball.radius, ball.x + SPEED.move);
+                rightArrow.style.display = 'block';
+                rightArrow.style.opacity = '1';
+                leftArrow.style.display = 'none';
+            }
+        }
+    });
+
+    // Update mouse controls
+    canvas.addEventListener('mousedown', (event) => {
+        if (!isPaused && !gameOver) {
+            const mouseX = event.clientX - canvas.getBoundingClientRect().left;
+            if (mouseX < canvas.width / 2) {
+                ball.x = Math.max(ball.radius, ball.x - SPEED.move);
+                leftArrow.style.display = 'block';
+                leftArrow.style.opacity = '1';
+                rightArrow.style.display = 'none';
+            } else {
+                ball.x = Math.min(canvas.width - ball.radius, ball.x + SPEED.move);
+                rightArrow.style.display = 'block';
+                rightArrow.style.opacity = '1';
+                leftArrow.style.display = 'none';
+            }
+        }
+    });
+
+    // Update mouseup/touchend handlers to reset opacity
+    document.addEventListener('mouseup', () => {
+        leftArrow.style.opacity = '0.5';
+        rightArrow.style.opacity = '0.5';
+
+    });
+
+    document.addEventListener('touchend', () => {
+        leftArrow.style.opacity = '0.5';
+        rightArrow.style.opacity = '0.5';
+        leftArrow.style.display = 'none';
+        rightArrow.style.display = 'none';
+    });
+
+    // Add keyup handler to reset opacity
+    document.addEventListener('keyup', (event) => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            leftArrow.style.opacity = '0.5';
+            rightArrow.style.opacity = '0.5';
+            leftArrow.style.display = 'none';
+            rightArrow.style.display = 'none';
+        }
     });
 
     // Start the game

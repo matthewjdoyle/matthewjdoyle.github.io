@@ -577,12 +577,12 @@ footer .fa-github {
     background-size: 6% 9%;
     border-radius: 16px;
     box-shadow: var(--shadow);
-
     border: 0px solid rgba(255, 255, 255, 0.1);
     opacity: 0;
     transform: translateY(20px);
-
     animation: fadeIn 0.5s ease forwards;
+    position: relative;
+    z-index: 1;
 }
 
 .feature-content {
@@ -593,7 +593,22 @@ footer .fa-github {
     width: 100%;
     height: auto;
     max-width: none;
-    overflow: hidden;
+    overflow: visible;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+.feature-image .feature-image-hover {
+    width: 100%;
+    height: 100%;
+}
+
+.feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .image-placeholder {
@@ -1152,6 +1167,7 @@ header {
     cursor: pointer;
     display: inline-block;
     width: 100%;
+    z-index: 3;
 }
 
 .feature-image-hover::after {
@@ -1192,9 +1208,44 @@ header {
     transition: all 0.2s ease-in-out;
 }
 
-.feature-image-hover:hover{
+/* Fix: Change this selector to target both pseudo-elements on hover */
+.feature-image-hover:hover::before,
+.feature-image-hover:hover::after {
     visibility: visible;
     opacity: 1;
+}
+
+.academic-background-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.academic-text {
+    flex: 1;
+}
+
+.portrait-container {
+    flex: 0 0 auto;
+    max-width: 300px;
+}
+
+.portrait-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .academic-background-container {
+        flex-direction: column;
+    }
+    
+    .portrait-container {
+        max-width: 100%;
+        margin: 1rem auto;
+    }
 }
 
 

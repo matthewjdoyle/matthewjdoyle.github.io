@@ -80,6 +80,79 @@
         <div id="github-profile-content" class="github-profile-container"></div>
     </section>
 
+    <section class="feature-section timeline-feature">
+        <h2><i class="fas fa-history"></i> My Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-container">
+
+                <div class="timeline-item visible">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1998</div>
+                        <div class="timeline-title">21 August 1998</div>
+                        <div class="timeline-description">My Journey Begins</div>
+                    </div>
+                    <div class="timeline-world-event">
+                        <div class="timeline-description">Was anything else more important in 1998?</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item visible">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-title">Began MSci Physics Research</div>
+                        <div class="timeline-description">Track Reconstruction in CERN Particle Collisions</div>
+                    </div>
+                    <div class="timeline-world-event">
+                        <div class="timeline-description">December 2019: First COVID-19 cases reported in Wuhan, China</div>
+                    </div>
+                </div>
+
+
+                <div class="timeline-item visible">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-title">MSci in Physics</div>
+                        <div class="timeline-description">First Class Honours</div>
+                    </div>
+                    <div class="timeline-world-event">
+                        <div class="timeline-description">March 2020: Global COVID-19 Pandemic declared, UK enters first lockdown</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item visible">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-title">Began PhD Research</div>
+                        <div class="timeline-description">Quantum Turbulence in the T=0 Limit at The University of Manchester</div>
+                    </div>
+                    <div class="timeline-world-event">
+                        <div class="timeline-description">December 2020: UK begins COVID-19 vaccination program</div>
+                    </div>
+                </div>
+
+
+                <div class="timeline-item visible">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">Submitted PhD Thesis</div>
+                        <div class="timeline-description">Completed doctoral research in quantum turbulence</div>
+                    </div>
+                    <div class="timeline-world-event">
+                        <div class="timeline-description">2024: AI Revolution - ChatGPT & Claude drive global AI adoption</div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-controls">
+                <button class="timeline-scroll left" aria-label="Scroll left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="timeline-scroll right" aria-label="Scroll right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <!-- Navigation Links -->
         <a href="../"><i class="fas fa-home"></i> Home</a>
@@ -101,6 +174,97 @@
 
     <!-- Include the JavaScript file -->
     <script src="./github_profile.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const container = document.querySelector('.timeline-container');
+        const timeline = document.querySelector('.timeline');
+        const slider = document.createElement('div');
+        slider.className = 'timeline-slider';
+        timeline.appendChild(slider);
+
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
+        let sliderLeft;
+
+        function updateSliderPosition(scrollPosition) {
+            const timelineWidth = timeline.offsetWidth - slider.offsetWidth;
+            const scrollPercentage = Math.abs(scrollPosition) / (container.scrollWidth - timeline.offsetWidth);
+            const sliderPosition = timelineWidth * scrollPercentage;
+            slider.style.left = `${sliderPosition}px`;
+        }
+
+        function updateTimelinePosition(sliderPosition) {
+            const timelineWidth = timeline.offsetWidth - slider.offsetWidth;
+            const scrollPercentage = sliderPosition / timelineWidth;
+            const maxScroll = container.scrollWidth - timeline.offsetWidth;
+            const newPosition = -scrollPercentage * maxScroll;
+            
+            container.style.transform = `translateX(${newPosition}px)`;
+        }
+
+        slider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.clientX - slider.offsetLeft;
+            
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+
+        function onMouseMove(e) {
+            if (!isDragging) return;
+            
+            e.preventDefault();
+            const x = e.clientX - startX;
+            const timelineRect = timeline.getBoundingClientRect();
+            const maxX = timelineRect.width - slider.offsetWidth;
+            
+            // Constrain slider movement
+            const newX = Math.max(0, Math.min(x, maxX));
+            slider.style.left = `${newX}px`;
+            
+            // Update timeline position
+            updateTimelinePosition(newX);
+        }
+
+        function onMouseUp() {
+            isDragging = false;
+            slider.style.cursor = 'grab';
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+
+        // Touch events for mobile support
+        slider.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX - slider.offsetLeft;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            
+            const x = e.touches[0].clientX - startX;
+            const timelineRect = timeline.getBoundingClientRect();
+            const maxX = timelineRect.width - slider.offsetWidth;
+            
+            const newX = Math.max(0, Math.min(x, maxX));
+            slider.style.left = `${newX}px`;
+            
+            updateTimelinePosition(newX);
+        });
+
+        slider.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Initialize slider position
+        updateSliderPosition(0);
+
+        // Prevent text selection while dragging
+        slider.addEventListener('selectstart', (e) => e.preventDefault());
+    });
+    </script>
 </body>
 
 

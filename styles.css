@@ -1,15 +1,17 @@
 :root {
-    --background: #121212;
-    --surface: #1e1e1e;
-    --primary: #3e2c48;
-    --primary-light: #b28ec6;
-    --primary-hover: #553d62;
-    --text: #ffffff;
+    --background: #060912;          /* Dark purple from Viridis */
+    --surface: #06191f;            /* Slightly lighter purple */
+    --primary: #21908C;            /* Teal/green from middle of Viridis */
+    --primary-light: #40d86e;      /* Light green from Viridis */
+    --primary-hover: #2A788E;      /* Slightly darker teal */
+    --text: #ffffff;               /* Keep white text for contrast */
     --text-secondary: rgba(255, 255, 255, 0.7);
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --orcid-green: #708b25;
-    --orcid-hover: #90b629;
-    --footer-color: #463854;
+    --orcid-green: #95D840;        /* Updated to match Viridis */
+    --orcid-hover: #FDE725;        /* Yellow from Viridis */
+    --footer-color: #482878;       /* Purple from Viridis */
+    --accent: #FDE725;             /* Yellow from Viridis */
+    --accent-hover: #95D840;       /* Light green for hover states */
 }
 
 body {
@@ -502,12 +504,12 @@ footer a:hover {
 
 .publication-item.award {
     border: 1px solid var(--primary);
-    background: rgba(187, 134, 252, 0.05);
+    background: rgba(33, 144, 140, 0.05);
     transition: background-color 0.3s ease;
 }
 
 .publication-item.award:hover {
-    background: rgba(187, 134, 252, 0.1);
+    background: rgba(33, 144, 140, 0.1);
 }
 
 /* Section toggle styles */
@@ -615,7 +617,7 @@ footer .fa-github {
 
 .open-to-work {
     border: 2px solid var(--primary-light);
-    background: linear-gradient(45deg, var(--surface), rgba(129, 105, 142, 0.1));
+    background: linear-gradient(45deg, var(--surface), rgba(72, 21, 103, 0.1));
     position: relative;
     overflow: hidden;
     max-width: 620px;
@@ -688,18 +690,18 @@ header {
 
 .btn-internal {
     position: relative;
-    background: #693e84; /* Match the regular button color */
-    padding: .8rem 1.2rem; /* Padding for the button */
-    text-decoration: none; /* No underline */
-    border-radius: 8px; /* Rounded corners */
-    display: inline-block; /* Inline block for button layout */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-weight: 500; /* Font weight */
-    font-size: 1rem; /* Font size */
-    color: var(--text); /* Text color */
-    overflow: hidden; /* Hide overflow for ripple effect */
+    background: #21908C; /* Updated to match primary */
+    padding: .8rem 1.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text);
+    overflow: hidden;
 }
 
 .btn-internal:hover {
@@ -764,12 +766,12 @@ header {
 }
 
 .engaging-text {
-    background: rgba(44, 1, 77, 0.1); /* Light background for contrast */
-    padding: 20px; /* Space around the text */
-    border-radius: 8px; /* Rounded corners */
-    margin: 20px 0; /* Space above and below */
-    text-align: center; /* Center the text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    background: rgba(68, 1, 84, 0.1); /* Updated to match background */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .engaging-text p {

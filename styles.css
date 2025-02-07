@@ -31,7 +31,7 @@ header {
     position: relative;
     overflow: hidden;
     animation: gradientBG 30s ease infinite;
-    background-size: 800% 800%;
+    background-size: 800% 400%;
     background-image: linear-gradient(
         17deg,
         var(--surface) 0%,

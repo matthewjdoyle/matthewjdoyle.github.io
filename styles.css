@@ -1248,6 +1248,30 @@ header {
     }
 }
 
+/* Add specific styling for tutor page portrait */
+.tutor-page .portrait-container {
+    flex: 0 0 auto;
+    max-width: 200px;  /* Reduced from 300px */
+}
+
+.tutor-page .portrait-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .tutor-page .academic-background-container {
+        flex-direction: column;
+    }
+    
+    .tutor-page .portrait-container {
+        max-width: 200px;  /* Keep consistent size on mobile */
+        margin: 1rem auto;
+    }
+}
+
 
 
 

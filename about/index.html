@@ -273,16 +273,31 @@
             document.removeEventListener('mouseup', onMouseUp);
         }
 
-        // Update touch events
         slider.addEventListener('touchstart', (e) => {
             isDragging = true;
             startX = e.touches[0].clientX - slider.offsetLeft;
-            togglePageScroll(false); // Disable scrolling
+            togglePageScroll(false);
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            
+            e.preventDefault();
+            const x = e.touches[0].clientX - startX;
+            const timelineRect = timeline.getBoundingClientRect();
+            const maxX = timelineRect.width - slider.offsetWidth;
+            
+            // Constrain slider movement
+            const newX = Math.max(0, Math.min(x, maxX));
+            slider.style.left = `${newX}px`;
+            
+            // Update timeline position
+            updateTimelinePosition(newX);
         });
 
         slider.addEventListener('touchend', () => {
             isDragging = false;
-            togglePageScroll(true); // Re-enable scrolling
+            togglePageScroll(true);
         });
 
         // Prevent default touch behavior on the timeline

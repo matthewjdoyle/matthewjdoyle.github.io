@@ -632,8 +632,8 @@ footer .fa-github {
     position: relative;
     overflow: hidden;
     max-width: 620px;
+    animation: pulse 2s infinite;
 }
-
 
 .open-to-work::before {
     content: '';
@@ -643,19 +643,28 @@ footer .fa-github {
     width: 0px;
     height: 100%;
     background: var(--primary-light);
-    animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
+    0% { 
+        border-color: var(--primary-light);
+        opacity: 1; 
+    }
+    50% { 
+        border-color: var(--accent);
+        opacity: 1; 
+    }
+    100% { 
+        border-color: var(--primary-light);
+        opacity: 1; 
+    }
 }
 
 /* Add this class to hide the section when needed */
 .hidden {
     display: none;
 }
+
 
 .cv-list {
     list-style: none;

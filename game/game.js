@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Game colors matching website theme
     const colors = {
-        ball: '#3e2c48', // primary
-        star: '#f9d0ff', // light purple
-        obstacle: '#3e2c48', // primary
-        background: '#1e1e1e', // surface
-        text: '#ffffff' // text
+        ball: '#21908C',      // primary
+        star: '#FDE725',      // accent (yellow from Viridis)
+        obstacle: '#21908C',   // primary
+        background: '#060912', // background (Dark purple from Viridis)
+        text: '#ffffff'        // text
     };
 
     // Speed constant
@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const initialState = {
         x: canvas.width / 2,
         y: canvas.height - 30,
-        radius: 15,
+        radius: 16,
         vx: 0,
-        speed: 1.5,
+        speed: 3,
         gravity: 0.2,
         jumpPower: -20,
         isJumping: false,
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let ball = {
         x: canvas.width / 2,
         y: canvas.height - 30,
-        radius: 15,
+        radius: 16,
         vx: 0,
-        speed: 1.5,
+        speed: 3,
         gravity: 0.2,
         jumpPower: -20, // Updated jump power
         isJumping: false,
@@ -113,15 +113,29 @@ document.addEventListener('DOMContentLoaded', function() {
     gameContainer.appendChild(rightArrow);
 
     function getHighScore() {
-        const highScore = document.cookie.split('; ').find(row => row.startsWith('highScore='));
-        return highScore ? parseInt(highScore.split('=')[1]) : 0;
+        try {
+            // Get high score from localStorage, default to 0 if not found
+            const storedScore = localStorage.getItem('gameHighScore');
+            return storedScore ? parseInt(storedScore) : 0;
+        } catch (error) {
+            console.error('Error getting high score:', error);
+            return 0;
+        }
     }
 
     function setHighScore(newScore) {
-        // Set cookie to expire in 1 year
-        const expiryDate = new Date();
-        expiryDate.setFullYear(expiryDate.getFullYear() + 1);
-        document.cookie = `highScore=${newScore};expires=${expiryDate.toUTCString()};path=/`;
+        try {
+            // Only store if it's a valid number
+            if (typeof newScore === 'number' && !isNaN(newScore)) {
+                localStorage.setItem('gameHighScore', newScore);
+                // Update display whenever we set a new high score
+                if (highScoreValue) {
+                    highScoreValue.textContent = newScore;
+                }
+            }
+        } catch (error) {
+            console.error('Error setting high score:', error);
+        }
     }
 
     function resetGame() {
@@ -150,8 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         gameStats.style.display = 'none';
         
         // Update high score display
-        const currentHighScore = getHighScore();
-        highScoreValue.textContent = currentHighScore;
+        highScoreValue.textContent = getHighScore();
     }
 
     // Generate stars
@@ -160,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stars.push({
                 x: Math.random() * canvas.width,
                 y: 0,
-                radius: 5,
+                radius: 4,
                 color: colors.star,
             });
         }
@@ -252,19 +265,25 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2);
             ctx.fillText(`Final Score: ${score}`, canvas.width / 2, canvas.height / 2 + 40);
             
-            // Show the restart button when the game is over
             restartButton.style.display = 'inline-block';
             
-            // Check and update high score
-            const currentHighScore = getHighScore();
-            if (score > currentHighScore) {
-                setHighScore(score);
-                highScoreValue.textContent = score;
-                
-                // Add high score celebration text
-                ctx.fillStyle = colors.star;
-                ctx.font = '24px Inter';
-                ctx.fillText('New High Score!', canvas.width / 2, canvas.height / 2 + 80);
+            try {
+                // Check and update high score
+                const currentHighScore = getHighScore();
+                if (score > currentHighScore) {
+                    setHighScore(score);
+                    // Add high score celebration text
+                    ctx.fillStyle = colors.star;
+                    ctx.font = '24px Inter';
+                    ctx.fillText('New High Score!', canvas.width / 2, canvas.height / 2 + 80);
+                } else {
+                    // Always ensure the display shows the current high score
+                    if (highScoreValue) {
+                        highScoreValue.textContent = currentHighScore;
+                    }
+                }
+            } catch (error) {
+                console.error('Error updating high score display:', error);
             }
             
             return;
@@ -388,11 +407,21 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGame(); // Call the function to show the game section
 
     // Initialize high score display when the game loads
-    const currentHighScore = getHighScore();
-    highScoreValue.textContent = currentHighScore;
+    initializeGame();
 });
 
 function initializeGame() {
     // Show the game section after the script is loaded
-    document.getElementById('game-section').style.display = 'block';
+    const gameSection = document.getElementById('game-section');
+    if (gameSection) {
+        gameSection.style.display = 'block';
+    }
+
+    // Initialize high score display
+    if (highScoreValue) {
+        const currentHighScore = getHighScore();
+        highScoreValue.textContent = currentHighScore;
+    } else {
+        console.error('High score display element not found');
+    }
 } 

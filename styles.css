@@ -783,6 +783,12 @@ header {
     margin: 5px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform-origin: left center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engaging-text:hover {
+    transform: scale(1.02) translateX(5px);
 }
 
 .engaging-text p {
@@ -800,6 +806,12 @@ header {
     margin: 5px 0;
     text-align: right;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform-origin: left center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engaging-text2:hover {
+    transform: scale(1.02) translateX(5px);
 }
 
 .engaging-text2 p {
@@ -816,6 +828,12 @@ header {
     margin: 5px 0;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform-origin: left center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engaging-text3:hover {
+    transform: scale(1.02) translateX(5px);
 }
 
 .engaging-text3 p {

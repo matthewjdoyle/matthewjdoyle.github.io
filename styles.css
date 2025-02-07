@@ -806,7 +806,7 @@ header {
     background: var(--primary-light); 
     width: fit-content;
     display: flex;
-    margin: 5px 0 5px auto; /* Changed: added 'auto' on left margin to push to right */
+    margin: 10px 0 20px auto; /* Changed: added 'auto' on left margin to push to right */
     padding: 10px;
     border-radius: 8px;
     text-align: center;
@@ -831,11 +831,12 @@ header {
     width: fit-content;
     padding: 10px;
     border-radius: 8px;
-    margin: 5px 0;
+    margin: 5px 20px;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform-origin: left center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .engaging-text1:hover {
@@ -855,15 +856,16 @@ header {
     width: fit-content;
     padding: 10px;
     border-radius: 8px;
-    margin: 5px 0;
+    margin: 5px 20px;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform-origin: left center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .engaging-text3:hover {
-    transform: scale(1.02) translateX(50px) translateY(20px);
+    transform: scale(1.02) translateX(50px) translateY(10px);
 }
 
 .engaging-text3 p {

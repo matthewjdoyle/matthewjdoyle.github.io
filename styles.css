@@ -788,8 +788,8 @@ header {
 .engaging-text p {
     font-size: 1.1rem; /* Increase font size */
     font-weight: bold; /* Make text bold */
-    color: var(--text); 
-    text-shadow: 1px 1px 2px rgb(0, 0, 0); /* Add text shadow */
+    color: rgba(47, 43, 109, 0.979); 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.233); /* Add text shadow */
     
 }
 
@@ -805,8 +805,8 @@ header {
 .engaging-text2 p {
     font-size: 1.1rem; /* Increase font size */
     font-weight: bold; /* Make text bold */
-    color: var(--text); 
-    text-shadow: 1px 1px 2px rgb(0, 0, 0); /* Add text shadow */
+    color: rgba(21, 44, 57, 0.979); 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.215); /* Add text shadow */
 }
 
 .engaging-text3 {
@@ -821,8 +821,8 @@ header {
 .engaging-text3 p {
     font-size: 1.1rem; /* Increase font size */
     font-weight: bold; /* Make text bold */
-    color: var(--text); 
-    text-shadow: 1px 1px 2px rgb(0, 0, 0); /* Add text shadow */
+    color: rgba(55, 29, 74, 0.979); 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.228); /* Add text shadow */
 }
 
 .github-profile-container {

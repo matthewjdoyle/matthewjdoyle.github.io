@@ -1047,3 +1047,24 @@ header {
     border-radius: 2px;
 }
 
+.animated-ellipsis {
+    display: inline-block;
+    opacity: 0; /* Start hidden */
+    visibility: visible; /* Keep visible by default */
+}
+
+/* Add hover trigger for the animation */
+.timeline-title:hover .animated-ellipsis {
+    animation: ellipsis 10s forwards;
+}
+
+@keyframes ellipsis {
+    0% { opacity: 0.0; }
+    25% { opacity: 0.5; }
+    50% { opacity: 0.1; }
+    75% { opacity: 0.6; }
+    90% { opacity: 0.0; }
+    100% { opacity: 0.0; visibility: hidden; }
+}
+
+

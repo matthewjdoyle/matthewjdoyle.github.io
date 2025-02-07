@@ -30,17 +30,28 @@ header {
     padding: 4rem 2rem;
     position: relative;
     overflow: hidden;
+    animation: gradientBG 30s ease infinite;
+    background-size: 800% 800%;
+    background-image: linear-gradient(
+        17deg,
+        var(--surface) 0%,
+        var(--primary) 25%,
+        var(--surface) 50%,
+        var(--primary) 75%,
+        var(--surface) 100%
+    );
 }
 
-header::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, var(--primary) 0%, transparent 100%);
-    opacity: 0.1;
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 header h1 {

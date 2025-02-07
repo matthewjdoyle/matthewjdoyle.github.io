@@ -14,12 +14,13 @@
 <body>
     <header>
         <a href="../" class="home-button"><i class="fas fa-home"></i></a>
-        <h1>Catch the Stars</h1>
-        <p class="subtitle">A Simple Browser Game</p>
+        <h1>games</h1>
+        <p class="subtitle">.js (JavaScript)</p>
     </header>
 
     <section id="game-section" style="text-align: center;">
-        <h2><i class="fas fa-gamepad"></i> Game Controls</h2>
+        <h2>// Catch them.</h2>
+        <span>High Score: <span id="highScoreValue">0</span></span>
         <p>Use left/right arrow keys or click/tap sides to move. Collect as many stars as you can!</p>
         <div id="gameContent">
             <canvas id="gameCanvas" width="400" height="300" style="border: 1px solid rgba(255, 255, 255, 0.1); margin: 0 auto;"></canvas>
@@ -34,7 +35,8 @@
         </div>
     </section>
 
-    <section>
+    <section id="game-section" style="text-align: center;">
+        <h3>// Catch it.</h3>
         <div class="interactive-square">
             <p><i class="fas fa-toggle-on" style="color: gold;"></i></p>
         </div>
@@ -63,8 +65,8 @@
 
 <style>
     .interactive-square {
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
         background: transparent;
         margin: 50px auto;
         display: flex;
@@ -72,17 +74,42 @@
         align-items: center;
         transition: transform 0.2s ease-out;
         cursor: pointer;
+
     }
 
     .interactive-square i {
         font-size: 2em;
+    }
+
+    #click-counter {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: gold;
     }
 </style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const square = document.querySelector('.interactive-square');
-        const maxDistance = 100; // Maximum pixels to move
+        const squareSection = square.closest('section');
+        squareSection.style.position = 'relative';  // Add relative positioning to section
+        const maxDistance = 100;
+        
+        // Add click counter
+        let clicks = 0;
+        const counterDiv = document.createElement('div');
+        counterDiv.id = 'click-counter';
+        counterDiv.textContent = `Score: ${clicks}`;
+        squareSection.appendChild(counterDiv);  // Append to section instead of body
+
+        square.addEventListener('click', function() {
+            clicks++;
+            counterDiv.textContent = `Clicks: ${clicks}`;
+        });
         
         square.addEventListener('mousemove', function(e) {
             const rect = square.getBoundingClientRect();

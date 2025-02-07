@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const restartButton = document.getElementById('restartButton');
     const addTimeButton = document.getElementById('addTimeButton');
     const gameStats = document.getElementById('gameStats');
+    const highScoreValue = document.getElementById('highScoreValue');
 
     if (!canvas || !ctx) {
         console.error('Canvas or context not found');
@@ -111,6 +112,18 @@ document.addEventListener('DOMContentLoaded', function() {
     gameContainer.appendChild(leftArrow);
     gameContainer.appendChild(rightArrow);
 
+    function getHighScore() {
+        const highScore = document.cookie.split('; ').find(row => row.startsWith('highScore='));
+        return highScore ? parseInt(highScore.split('=')[1]) : 0;
+    }
+
+    function setHighScore(newScore) {
+        // Set cookie to expire in 1 year
+        const expiryDate = new Date();
+        expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+        document.cookie = `highScore=${newScore};expires=${expiryDate.toUTCString()};path=/`;
+    }
+
     function resetGame() {
         ball = {
             x: initialState.x,
@@ -135,6 +148,10 @@ document.addEventListener('DOMContentLoaded', function() {
         togglePauseButton.style.display = 'inline-block';
         restartButton.style.display = 'none';
         gameStats.style.display = 'none';
+        
+        // Update high score display
+        const currentHighScore = getHighScore();
+        highScoreValue.textContent = currentHighScore;
     }
 
     // Generate stars
@@ -237,6 +254,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show the restart button when the game is over
             restartButton.style.display = 'inline-block';
+            
+            // Check and update high score
+            const currentHighScore = getHighScore();
+            if (score > currentHighScore) {
+                setHighScore(score);
+                highScoreValue.textContent = score;
+                
+                // Add high score celebration text
+                ctx.fillStyle = colors.star;
+                ctx.font = '24px Inter';
+                ctx.fillText('New High Score!', canvas.width / 2, canvas.height / 2 + 80);
+            }
+            
             return;
         }
 
@@ -356,6 +386,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the game
     gameLoop();
     initializeGame(); // Call the function to show the game section
+
+    // Initialize high score display when the game loads
+    const currentHighScore = getHighScore();
+    highScoreValue.textContent = currentHighScore;
 });
 
 function initializeGame() {

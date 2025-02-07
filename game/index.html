@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>matthewjdoyle</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png?v=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="../" class="home-button"><i class="fas fa-home"></i></a>
+        <h1>Catch the Stars</h1>
+        <p class="subtitle">A Simple Browser Game</p>
+    </header>
+
+    <section id="game-section" style="text-align: center;">
+        <h2><i class="fas fa-gamepad"></i> Game Controls</h2>
+        <p>Use left/right arrow keys or click/tap sides to move. Collect as many stars as you can!</p>
+        <div id="gameContent">
+            <canvas id="gameCanvas" width="400" height="300" style="border: 1px solid rgba(255, 255, 255, 0.1); margin: 0 auto;"></canvas>
+            <div class="game-controls">
+                <button id="togglePauseButton" class="btn">Start Game</button>
+                <button id="restartButton" class="btn" style="display: none;">Restart Game</button>
+            </div>
+            <div id="gameStats">
+                <div id="scoreDisplay">Score: <span id="scoreValue">0</span></div>
+                <div id="timerDisplay">Time: <span id="timeValue">30</span>s</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Navigation Links -->
+        <a href="../"><i class="fas fa-home"></i> Home</a>
+        <a href="../about"><i class="fas fa-user"></i> About Me</a>
+        <a href="../tutor"><i class="fas fa-chalkboard-teacher"></i> Tutoring Services</a>
+        <a href="../webdesign"><i class="fas fa-laptop-code"></i> Web Design Services</a>
+        <a href="../quantum-turbulence"><i class="fas fa-atom"></i> Quantum Turbulence</a>  
+        <a href="../publications"><i class="fas fa-book"></i> Publications</a>
+
+        <div style="text-align: right;">
+            <!-- External Links -->
+            <a href="https://orcid.org/0000-0002-6994-1832"><i class="fab fa-orcid"></i> ORCID</a>
+            <a href="https://github.com/matthewjdoyle"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/matthewd0yle"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:matthew.doyle@manchester.ac.uk"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+    </footer>
+
+    <script src="./game.js?v=1.0" type="text/javascript"></script>
+</body>
+</html>

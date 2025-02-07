@@ -10,12 +10,6 @@
     <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Hide the game section initially */
-        #game-section {
-            display: none; /* Hide the game section */
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -24,41 +18,15 @@
         <p class="subtitle">Professional Web Solutions</p>
     </header>
 
-    <section id="game-section" style="text-align: center;">
-        <h2 class="clickable-header" onclick="toggleGameVisibility();"><i class="fas fa-gamepad"></i> Catch the Stars</h2>
-        <div id="gameContent" style="display: none;">
-            <canvas id="gameCanvas" width="400" height="300" style="border: 1px solid rgba(255, 255, 255, 0.1); margin: 0 auto;"></canvas>
-            <div class="game-controls">
-                <button id="togglePauseButton" class="btn">Start Game</button>
-                <button id="restartButton" class="btn" style="display: none;">Restart Game</button>
-            </div>
-            <div id="gameStats" style="display: none;">
-                <div id="scoreDisplay">Score: <span id="scoreValue">0</span></div>
-                <div id="timerDisplay">Time: <span id="timeValue">30</span>s</div>
-            </div>
-        </div>
-    </section>
-    
-    <script src="./game.js?v=1.0" type="text/javascript" defer onload="initializeGame()"></script>
-    <script>
-        function initializeGame() {
-            // Show the game section after the script is loaded
-            document.getElementById('game-section').style.display = 'block';
-        }
-
-        function toggleGameVisibility() {
-            const gameContent = document.getElementById('gameContent');
-            gameContent.style.display = gameContent.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
-
     <section>
-        <h2><i class="fas fa-code"></i> Services</h2>
+        
         <div class="engaging-text">
             <p>Like my website? <br>
             Own a small business or academic website?<br>
             I offer a range of web design services to help you carve out your own online space.</p>
         </div>
+
+        <h2><i class="fas fa-code"></i> Services</h2>
         <div class="services-grid">
             <div class="service-item">
                 <h3><i class="fas fa-laptop"></i> Website Development</h3>

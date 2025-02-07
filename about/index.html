@@ -217,6 +217,11 @@
         let scrollLeft;
         let sliderLeft;
 
+        // Add function to prevent/allow scrolling
+        function togglePageScroll(enable) {
+            document.body.style.overflow = enable ? 'auto' : 'hidden';
+        }
+
         function updateSliderPosition(scrollPosition) {
             const timelineWidth = timeline.offsetWidth - slider.offsetWidth;
             const scrollPercentage = Math.abs(scrollPosition) / (container.scrollWidth - timeline.offsetWidth);
@@ -233,10 +238,12 @@
             container.style.transform = `translateX(${newPosition}px)`;
         }
 
+        // Update existing event listeners to toggle scroll
         slider.addEventListener('mousedown', (e) => {
             isDragging = true;
             slider.style.cursor = 'grabbing';
             startX = e.clientX - slider.offsetLeft;
+            togglePageScroll(false); // Disable scrolling
             
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
@@ -261,32 +268,29 @@
         function onMouseUp() {
             isDragging = false;
             slider.style.cursor = 'grab';
+            togglePageScroll(true); // Re-enable scrolling
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
         }
 
-        // Touch events for mobile support
+        // Update touch events
         slider.addEventListener('touchstart', (e) => {
             isDragging = true;
             startX = e.touches[0].clientX - slider.offsetLeft;
-        });
-
-        slider.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            
-            const x = e.touches[0].clientX - startX;
-            const timelineRect = timeline.getBoundingClientRect();
-            const maxX = timelineRect.width - slider.offsetWidth;
-            
-            const newX = Math.max(0, Math.min(x, maxX));
-            slider.style.left = `${newX}px`;
-            
-            updateTimelinePosition(newX);
+            togglePageScroll(false); // Disable scrolling
         });
 
         slider.addEventListener('touchend', () => {
             isDragging = false;
+            togglePageScroll(true); // Re-enable scrolling
         });
+
+        // Prevent default touch behavior on the timeline
+        timeline.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+            }
+        }, { passive: false });
 
         // Initialize slider position
         updateSliderPosition(0);

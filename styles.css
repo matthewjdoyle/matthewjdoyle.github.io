@@ -785,42 +785,23 @@ header {
     transform: translateX(-50%) translateY(-5px);
 }
 
-.engaging-text {
-    background: var(--accent-hover); 
-    padding: 10px;
-    border-radius: 8px;
-    margin: 5px 0;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform-origin: left center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.engaging-text:hover {
-    transform: scale(1.02) translateX(5px);
-}
-
-.engaging-text p {
-    font-size: 1.1rem; /* Increase font size */
-    font-weight: bold; /* Make text bold */
-    color: rgba(47, 43, 109, 0.979); 
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.233); /* Add text shadow */
-    
-}
 
 .engaging-text2 {
     background: var(--primary-light); 
+    width: fit-content;
+    display: flex;
+    margin: 5px 0 5px auto; /* Changed: added 'auto' on left margin to push to right */
     padding: 10px;
     border-radius: 8px;
-    margin: 5px 0;
-    text-align: right;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform-origin: left center;
+    transform-origin: center center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .engaging-text2:hover {
-    transform: scale(1.02) translateX(5px);
+    transform: scale(1.02) translateX(-40px);
 }
 
 .engaging-text2 p {
@@ -830,8 +811,33 @@ header {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.215); /* Add text shadow */
 }
 
+.engaging-text1 {
+    background: var(--accent); 
+    width: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform-origin: left center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engaging-text1:hover {
+    transform: scale(1.05) translateX(70px);
+}
+
+.engaging-text1 p {
+    font-size: 1.1rem; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    color: rgba(55, 29, 74, 0.979); 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.228); /* Add text shadow */
+}
+
+
 .engaging-text3 {
     background: var(--accent); 
+    width: fit-content;
     padding: 10px;
     border-radius: 8px;
     margin: 5px 0;
@@ -842,7 +848,7 @@ header {
 }
 
 .engaging-text3:hover {
-    transform: scale(1.02) translateX(5px);
+    transform: scale(1.02) translateX(50px) translateY(20px);
 }
 
 .engaging-text3 p {
@@ -851,6 +857,7 @@ header {
     color: rgba(55, 29, 74, 0.979); 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.228); /* Add text shadow */
 }
+
 
 .github-profile-container {
     background: #0d1117; /* GitHub's dark theme background color */
@@ -1189,5 +1196,8 @@ header {
     visibility: visible;
     opacity: 1;
 }
+
+
+
 
 

@@ -34,6 +34,12 @@
         </div>
     </section>
 
+    <section>
+        <div class="interactive-square">
+            <p><i class="fas fa-toggle-on" style="color: gold;"></i></p>
+        </div>
+    </section>
+
     <footer>
         <!-- Navigation Links -->
         <a href="../"><i class="fas fa-home"></i> Home</a>
@@ -54,4 +60,53 @@
 
     <script src="./game.js?v=1.0" type="text/javascript"></script>
 </body>
+
+<style>
+    .interactive-square {
+        width: 100px;
+        height: 100px;
+        background: transparent;
+        margin: 50px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.2s ease-out;
+        cursor: pointer;
+    }
+
+    .interactive-square i {
+        font-size: 2em;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const square = document.querySelector('.interactive-square');
+        const maxDistance = 100; // Maximum pixels to move
+        
+        square.addEventListener('mousemove', function(e) {
+            const rect = square.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // Calculate direction from cursor to square
+            const deltaX = e.clientX - centerX;
+            const deltaY = e.clientY - centerY;
+            
+            // Calculate distance
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            
+            // Calculate movement (inverse of cursor direction)
+            let moveX = (-deltaX / distance) * maxDistance;
+            let moveY = (-deltaY / distance) * maxDistance;
+            
+            // Ensure the movement stays within bounds
+            moveX = Math.max(Math.min(moveX, maxDistance), -maxDistance);
+            moveY = Math.max(Math.min(moveY, maxDistance), -maxDistance);
+            
+            // Apply transform
+            square.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    });
+</script>
 </html>

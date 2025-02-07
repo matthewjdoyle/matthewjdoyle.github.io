@@ -1,6 +1,6 @@
 :root {
     --background: #060912;          /* Dark purple from Viridis */
-    --surface: #06191f;            /* Slightly lighter purple */
+    --surface: #06191fd8;            /* Slightly lighter purple */
     --primary: #21908C;            /* Teal/green from middle of Viridis */
     --primary-light: #40d86e;      /* Light green from Viridis */
     --primary-hover: #2A788E;      /* Slightly darker teal */
@@ -9,7 +9,7 @@
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --orcid-green: #95D840;        /* Updated to match Viridis */
     --orcid-hover: #FDE725;        /* Yellow from Viridis */
-    --footer-color: #482878;       /* Purple from Viridis */
+    --footer-color: #0a0a0ad3;       /* Purple from Viridis */
     --accent: #FDE725;             /* Yellow from Viridis */
     --accent-hover: #95D840;       /* Light green for hover states */
 }
@@ -381,7 +381,7 @@ footer {
 }
 
 footer a {
-    color: rgb(255, 187, 244);
+    color: rgba(0, 208, 149, 0.614);
     text-decoration: none;
     padding: 0.5em 1em;
     transition: opacity 0.3s ease;

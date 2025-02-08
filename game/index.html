@@ -18,7 +18,7 @@
         <p class="subtitle">.js (JavaScript)</p>
     </header>
 
-    <section id="game-section" style="text-align: center;">
+    <section id="game-section" class="no-animate" style="text-align: center; opacity: 1;">
         <h2>// Catch them.</h2>
         <span>High Score: <span id="highScoreValue">0</span></span>
         <div id="gameContent">
@@ -34,7 +34,7 @@
         </div>
     </section>
 
-    <section style="text-align: center;">
+    <section class="no-animate" style="text-align: center; opacity: 1;">
         <h3 style="user-select: none;">// Catch it.</h3>
     </br>
     </br>
@@ -43,6 +43,7 @@
         </div>
     </section>
 
+    <script src="./../scripts/animations.js"></script>
     <script src="./game.js?v=1.0" type="text/javascript"></script>
 </body>
 
@@ -59,7 +60,10 @@
     }
 
     section {
-        min-height: 600px;  /* Add minimum height for vertical space */
+        /* Remove these conflicting animations */
+        /* opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.5s ease forwards; */
     }
 
     .interactive-square i {
@@ -75,6 +79,7 @@
         border-radius: 4px;
         color: gold;
     }
+
 </style>
 
 <script>

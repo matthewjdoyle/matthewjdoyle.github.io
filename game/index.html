@@ -34,14 +34,13 @@
         </div>
     </section>
 
-    <section id="game-section" style="text-align: center;">
+    <section style="text-align: center;">
         <h3 style="user-select: none;">// Catch it.</h3>
     </br>
     </br>
         <div class="interactive-square">
             <p><i class="fas fa-toggle-on" style="color: gold;"></i></p>
         </div>
-
     </section>
 
     <script src="./game.js?v=1.0" type="text/javascript"></script>
@@ -49,16 +48,18 @@
 
 <style>
     .interactive-square {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         background: transparent;
         margin: 50px auto;
         display: flex;
         justify-content: center;
         align-items: center;
         transition: transform 0.2s ease-out;
-        cursor: pointer;
+    }
 
+    section {
+        min-height: 600px;  /* Add minimum height for vertical space */
     }
 
     .interactive-square i {
@@ -81,7 +82,7 @@
         const square = document.querySelector('.interactive-square');
         const squareSection = square.closest('section');
         squareSection.style.position = 'relative';  // Add relative positioning to section
-        const maxDistance = 100;
+        const maxDistance = 400;  // Increased from 100 to 250
         
         // Add click counter
         let clicks = 0;
@@ -111,9 +112,15 @@
             let moveX = (-deltaX / distance) * maxDistance;
             let moveY = (-deltaY / distance) * maxDistance;
             
-            // Ensure the movement stays within bounds
-            moveX = Math.max(Math.min(moveX, maxDistance), -maxDistance);
-            moveY = Math.max(Math.min(moveY, maxDistance), -maxDistance);
+            // Add boundary checking
+            const sectionRect = squareSection.getBoundingClientRect();
+            const squareRect = square.getBoundingClientRect();
+            
+            // Ensure square stays within section boundaries
+            if (squareRect.left + moveX < sectionRect.left) moveX = sectionRect.left - squareRect.left;
+            if (squareRect.right + moveX > sectionRect.right) moveX = sectionRect.right - squareRect.right;
+            if (squareRect.top + moveY < sectionRect.top) moveY = sectionRect.top - squareRect.top;
+            if (squareRect.bottom + moveY > sectionRect.bottom) moveY = sectionRect.bottom - squareRect.bottom;
             
             // Apply transform
             square.style.transform = `translate(${moveX}px, ${moveY}px)`;

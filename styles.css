@@ -648,8 +648,8 @@ footer .fa-github {
     margin: 2em auto;
     background: radial-gradient(
         circle at center,
-        black 0%,
-        var(--background) 40%,
+        rgb(2, 4, 6) 0%,
+        var(--background) 60%,
         var(--background) 100%
     );
     background-size: 200% 200%;

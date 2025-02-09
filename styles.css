@@ -4,6 +4,7 @@
     --primary: #21908C;            /* Teal/green from middle of Viridis */
     --primary-light: #40d86e;      /* Light green from Viridis */
     --primary-hover: #2A788E;      /* Slightly darker teal */
+    --primary-dark: #005050;      /* Darker teal */
     --text: #ffffff;               /* Keep white text for contrast */
     --text-secondary: rgba(255, 255, 255, 0.7);
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -115,8 +116,8 @@ h3 {
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: var(--background);
-    color: var(--text);
+    background: var(--primary-light);
+    color: var(--background);
     position: relative;
     overflow: hidden;
 }
@@ -125,8 +126,11 @@ h3 {
     font-size: 1em;
 }
 
+
+
 .btn:hover, .btn-internal:hover {
-    background: var(--primary);
+    background: var(--accent);
+    color: var(--primary-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -833,7 +837,7 @@ header {
 
 .btn-internal {
     position: relative;
-    background: #21908C; /* Updated to match primary */
+    background: var(--primary); /* Updated to match primary */
     padding: .8rem 1.2rem;
     text-decoration: none;
     border-radius: 8px;
@@ -877,15 +881,15 @@ header {
     min-width: 120px;
     background-color: var(--background);
     color: white;
-    font-weight: 400;
-    font-size: 0.9rem;
+    font-weight: 200;
+    font-size: 0.8rem;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 1rem 2rem;
     position: absolute;
     z-index: 1;
     bottom: 125%;
-    left: 50%;
+    left: 20%;
     transform: translateX(-50%);
     opacity: 0;
     transition: all 0.2s ease-in-out;
@@ -894,10 +898,10 @@ header {
 .tooltip::after {
     content: "";
     position: absolute;
-    top: 100%;
-    left: 50%;
+    top: 50%;
+    left: 20%;
     margin-left: -5px;
-    border-width: 5px;
+    border-width: 2px;
     border-style: solid;
     border-color: var(--primary-light) transparent transparent transparent;
 }
@@ -1277,10 +1281,10 @@ header {
 
 .feature-image-hover {
     position: relative;
-    cursor: pointer;
     display: inline-block;
     width: 100%;
     z-index: 3;
+
 }
 
 .feature-image-hover::after {
@@ -1288,22 +1292,22 @@ header {
     position: absolute;
     visibility: hidden;
     width: auto;
-    min-width: 200px;
+    min-width: 120px;
     max-width: 300px;
     background-color: var(--background);
-    color: white;
+    color: var(--primary-light);
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
     border-radius: 6px;
     padding: 1rem 2rem;
     z-index: 1000;
-    bottom: 100%;
-    left: 50%;
+    bottom: -7%;
+    left: 20%;
     transform: translateX(-50%);
     opacity: 0;
     transition: all 0.2s ease-in-out;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .feature-image-hover::before {

@@ -1416,7 +1416,7 @@ header {
 
 .rating:hover label:hover,
 .rating:hover label:hover ~ label {
-    color: var(--primary-light);
+    color: var(--accent);
 }
 
 

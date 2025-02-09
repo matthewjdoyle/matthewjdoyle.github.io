@@ -1385,6 +1385,40 @@ header {
     }
 }
 
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    font-size: 2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input[type="radio"]:checked ~ label {
+    color: var(--primary-light);
+}
+
+.rating:hover label {
+    color: var(--text-secondary);
+}
+
+.rating:hover label:hover,
+.rating:hover label:hover ~ label {
+    color: var(--primary-light);
+}
+
 
 
 

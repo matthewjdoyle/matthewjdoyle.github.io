@@ -338,19 +338,24 @@ select {
 @media (max-width: 768px) {
     body {
         font-size: 16px; /* Increased from 14px */
+        overflow-x: hidden; /* Ensure no horizontal overflow */
     }
 
     header {
         padding: 2rem 1rem;
         text-align: center; /* Center header text */
+        width: 100%; /* Ensure header takes full width */
+        box-sizing: border-box; /* Include padding in width calculation */
     }
 
     header h1 {
         font-size: 2rem; /* Adjust font size for smaller screens */
+        margin: 0; /* Remove any default margin */
     }
 
     .subtitle {
         font-size: 1rem; /* Adjust subtitle size */
+        margin: 0; /* Remove any default margin */
     }
 
     h2 {
@@ -368,7 +373,7 @@ select {
     }
 
     .btn, .btn-external, .btn-orcid, .btn-github {
-        /* padding: 0.5rem; */
+        padding: .5rem 1.5rem;
         font-size: 0.9rem;
     }
 
@@ -392,6 +397,8 @@ select {
     .feature-section {
         grid-template-columns: 1fr;
         padding: 2rem 1rem;
+        width: 100%; /* Ensure feature section takes full width */
+        box-sizing: border-box; /* Include padding in width calculation */
     }
 
     .feature-content {
@@ -792,7 +799,6 @@ footer .fa-github {
     .feature-content {
         padding: 1rem;
         margin-bottom: 1rem;
-        text-align: center; /* Center text for better readability */
     }
 
     .feature-image {
@@ -813,8 +819,7 @@ footer .fa-github {
         font-size: 1rem; /* Adjust subtitle size */
     }
 
-    .btn, .btn-internal {
-        /* padding: 0.5rem; */
+    .btn, .btn-internal, .btn-external, .btn-orcid, .btn-github {
         font-size: 0.9rem;
     }
 

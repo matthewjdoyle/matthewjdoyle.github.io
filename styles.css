@@ -326,7 +326,7 @@ select {
     }
 
     .btn, .btn-external, .btn-orcid, .btn-github {
-        padding: 0.8rem 1.2rem; /* Adjust button padding */
+        /* padding: 0.8rem 1.2rem; Adjust button padding */
         font-size: 0.9rem; /* Adjust button font size */
     }
 
@@ -338,16 +338,16 @@ select {
     }
 
     header {
-        padding: 2em 1em;
-        text-align: right; /* Align text to the right on mobile */
+        padding: 2rem 1rem;
+        text-align: center; /* Center header text */
     }
 
     header h1 {
-        font-size: 2.4rem; /* Increased from 2rem */
+        font-size: 2rem; /* Adjust font size for smaller screens */
     }
 
     .subtitle {
-        font-size: 1.4rem; /* Added for subtitle */
+        font-size: 1rem; /* Adjust subtitle size */
     }
 
     h2 {
@@ -365,10 +365,8 @@ select {
     }
 
     .btn, .btn-external, .btn-orcid, .btn-github {
-        width: auto;
-        text-align: center;
-        padding: 0.7em 1em; /* Slightly increased padding */
-        font-size: 1rem; /* Increased from 0.8rem */
+        /* padding: 0.5rem; */
+        font-size: 0.9rem;
     }
 
     /* Adjust input and textarea sizes */
@@ -386,6 +384,27 @@ select {
 
     .timeline-world-event .timeline-description {
         font-size: 1rem; /* Increased from 0.8rem */
+    }
+
+    .feature-section {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+
+    .feature-content {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        text-align: center; /* Center text for better readability */
+    }
+
+    .feature-image {
+        max-width: 100%;
+        min-width: auto;
+    }
+
+    .engaging-text1, .engaging-text2, .engaging-text3 {
+        margin: 10px auto;
+        text-align: center;
     }
 }
 
@@ -407,7 +426,7 @@ select {
     }
 
     .btn, .btn-external, .btn-orcid, .btn-github {
-        padding: 0.6rem 1rem; /* Slightly increased padding */
+        /* padding: 0.6rem 1rem; Slightly increased padding */
         font-size: 0.9rem; /* Increased from 0.7rem */
     }
 
@@ -714,14 +733,14 @@ footer .fa-github {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    min-width: 500px;
+    min-width: 420px;
 }
 
 .feature-image {
     width: 100%;
     height: auto;
-    max-width: 500px;
-    min-width: 500px;
+    max-width: 420px;
+    min-width: 420px;
     overflow: visible;
     position: relative;
     display: inline-block;
@@ -763,11 +782,41 @@ footer .fa-github {
 @media (max-width: 768px) {
     .feature-section {
         grid-template-columns: 1fr;
+        padding: 2rem 1rem;
     }
-    
+
     .feature-content {
-        padding: 1.5em;
-        margin-bottom: 1.5em;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        text-align: center; /* Center text for better readability */
+    }
+
+    .feature-image {
+        max-width: 100%;
+        min-width: auto;
+    }
+
+    header {
+        padding: 2rem 1rem;
+        text-align: center; /* Center header text */
+    }
+
+    header h1 {
+        font-size: 2rem; /* Adjust font size for smaller screens */
+    }
+
+    .subtitle {
+        font-size: 1rem; /* Adjust subtitle size */
+    }
+
+    .btn, .btn-internal {
+        /* padding: 0.5rem; */
+        font-size: 0.9rem;
+    }
+
+    .engaging-text1, .engaging-text2, .engaging-text3 {
+        margin: 10px auto;
+        text-align: center;
     }
 }
 

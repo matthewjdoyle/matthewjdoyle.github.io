@@ -693,7 +693,7 @@ footer .fa-github {
 .feature-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3em;
+    gap: 5em;
     align-items: center;
     padding: 10rem 4rem;
     max-width: 100%;
@@ -1360,9 +1360,9 @@ header {
     visibility: hidden;
     width: auto;
     min-width: 120px;
-    max-width: 300px;
+    max-width: 200px;
     background-color: var(--background);
-    color: var(--primary-light);
+    color: var(--accent);
     font-weight: 400;
     font-size: 0.8rem;
     text-align: center;
@@ -1370,7 +1370,7 @@ header {
     padding: 1rem 2rem;
     z-index: 1000;
     bottom: -7%;
-    left: 20%;
+    left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     transition: all 0.2s ease-in-out;

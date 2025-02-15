@@ -23,6 +23,7 @@ body {
     color: var(--text);
     background: var(--background);
     font-size: 16px; /* Base font size */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 header {
@@ -41,6 +42,8 @@ header {
         var(--primary) 75%,
         var(--surface) 100%
     );
+    width: 100%; /* Ensure header takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 @keyframes gradientBG {
@@ -697,7 +700,7 @@ footer .fa-github {
     align-items: center;
     padding: 10rem 4rem;
     max-width: 100%;
-    margin: 0em auto;
+    margin: 0 auto;
     background: radial-gradient(
         circle at center,
         rgb(9, 17, 26) 0%,
@@ -705,13 +708,14 @@ footer .fa-github {
         var(--background) 100%
     );
     background-size: 300% 300%;
-
     border-radius: 0px;
     box-shadow: rgba(0, 0, 0, 0);
     border: 0px solid rgba(255, 255, 255, 0);
     position: relative;
     z-index: 1;
     animation: pulseGradient 30s ease infinite;
+    width: 100%; /* Ensure feature section takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 @keyframes pulseGradient {

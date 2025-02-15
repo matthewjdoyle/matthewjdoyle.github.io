@@ -404,12 +404,12 @@ select {
     .feature-content {
         padding: 1rem;
         margin-bottom: 1rem;
-        text-align: center; /* Center text for better readability */
+        max-width: 100%;
     }
 
     .feature-image {
-        max-width: 100%;
-        min-width: auto;
+        max-width: 350px;
+        min-width: 350px;
     }
 
     .engaging-text1, .engaging-text2, .engaging-text3 {
@@ -487,11 +487,11 @@ select {
     .feature-content {
         padding: 1rem;
         margin-bottom: 1rem;
-        text-align: center; /* Center text for better readability */
+        max-width: 90%;
     }
 
     .feature-image {
-        max-width: 100%;
+        max-width: 350px;
         min-width: auto;
     }
 

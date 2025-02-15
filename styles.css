@@ -37,7 +37,7 @@ header {
         17deg,
         var(--surface) 0%,
         var(--primary) 25%,
-        var(--surface) 50%,
+        var(--primary-light) 50%,
         var(--primary) 75%,
         var(--surface) 100%
     );
@@ -80,6 +80,10 @@ section {
     box-shadow: var(--shadow);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.spacer {
+    height: 300px;
+  }
 
 h2 {
     color: var(--primary-light);
@@ -138,6 +142,8 @@ h3 {
 .btn-external {
     background: #0077b5;
     color: white;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
 }
 
 .btn-external:hover {
@@ -149,6 +155,8 @@ h3 {
 .btn-orcid {
     background: var(--orcid-green);
     color: white;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
 }
 
 .btn-orcid:hover {
@@ -160,6 +168,8 @@ h3 {
 .btn-github {
     background: #24292e;
     color: white;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
 }
 
 .btn-github:hover {
@@ -664,22 +674,22 @@ footer .fa-github {
 .feature-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2em;
+    gap: 3em;
     align-items: center;
-    padding: 3em;
-    max-width: 1200px;
-    margin: 2em auto;
+    padding: 10rem 4rem;
+    max-width: 100%;
+    margin: 0em auto;
     background: radial-gradient(
         circle at center,
-        rgb(2, 4, 6) 0%,
+        rgb(9, 17, 26) 0%,
         var(--background) 60%,
         var(--background) 100%
     );
-    background-size: 200% 200%;
+    background-size: 300% 300%;
 
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    border: 0px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0px;
+    box-shadow: rgba(0, 0, 0, 0);
+    border: 0px solid rgba(255, 255, 255, 0);
     position: relative;
     z-index: 1;
     animation: pulseGradient 30s ease infinite;
@@ -698,13 +708,20 @@ footer .fa-github {
 }
 
 .feature-content {
-    padding-right: 2em;
+    padding: 2em;
+    margin-bottom: 2em;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 500px;
 }
 
 .feature-image {
     width: 100%;
     height: auto;
-    max-width: none;
+    max-width: 500px;
+    min-width: 500px;
     overflow: visible;
     position: relative;
     display: inline-block;
@@ -720,7 +737,7 @@ footer .fa-github {
     width: 100%;
     height: auto;
     border-radius: 14px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
 }
 
 .image-placeholder {
@@ -749,7 +766,8 @@ footer .fa-github {
     }
     
     .feature-content {
-        padding-right: 0;
+        padding: 1.5em;
+        margin-bottom: 1.5em;
     }
 }
 

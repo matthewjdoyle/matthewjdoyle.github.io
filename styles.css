@@ -422,7 +422,7 @@ select {
 
 @media handheld, only screen and (max-width: 1200px) {
     body {
-        font-size: 12px; /* Increased from 14px */
+        font-size: 16px; /* Increased from 14px */
         overflow-x: hidden; /* Ensure no horizontal overflow */
     }
 
@@ -869,8 +869,8 @@ footer .fa-github {
         margin-bottom: 1rem;
         width: 100%;
         min-width: auto;
-        text-align: center; /* Center content on mobile */
-        align-items: center;
+        text-align: right; /* Center content on mobile */
+        align-items: right;
     }
 
     .feature-image {

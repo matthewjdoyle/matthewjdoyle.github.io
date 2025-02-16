@@ -809,7 +809,6 @@ footer .fa-github {
 .feature-content {
     padding: 2em;
     margin-bottom: 2em;
-    text-size-adjust: 110%;
     text-align: right;
     display: flex;
     flex-direction: column;

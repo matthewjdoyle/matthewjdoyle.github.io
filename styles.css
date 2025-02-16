@@ -420,7 +420,7 @@ select {
     }
 }
 
-@media handheld, only screen and (max-width: 480px) {
+@media handheld, only screen and (max-width: 1200px) {
     body {
         font-size: 12px; /* Increased from 14px */
         overflow-x: hidden; /* Ensure no horizontal overflow */

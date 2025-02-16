@@ -420,7 +420,7 @@ select {
     }
 }
 
-@media (max-width: 480px) {
+@media handheld, only screen and (max-width: 480px) {
     body {
         font-size: 12px; /* Increased from 14px */
         overflow-x: hidden; /* Ensure no horizontal overflow */
@@ -495,8 +495,8 @@ select {
     }
 
     .feature-image {
-        max-width: 350px;
-        min-width: 350px;
+        max-width: 250px;
+        min-width: 250px;
         box-sizing: border-box; /* Include padding in width calculation */
     }
 

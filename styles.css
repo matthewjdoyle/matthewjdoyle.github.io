@@ -412,6 +412,8 @@ select {
     .feature-image {
         max-width: 350px;
         min-width: 350px;
+        margin: 0 auto;
+        display: block;
     }
 
     .engaging-text1, .engaging-text2, .engaging-text3 {
@@ -420,7 +422,7 @@ select {
     }
 }
 
-@media handheld, only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
     body {
         font-size: 16px; /* Increased from 14px */
         overflow-x: hidden; /* Ensure no horizontal overflow */
@@ -498,6 +500,8 @@ select {
         max-width: 250px;
         min-width: 250px;
         box-sizing: border-box; /* Include padding in width calculation */
+        margin: 0 auto;
+        display: block;
     }
 
     .engaging-text1, .engaging-text2, .engaging-text3 {
@@ -787,6 +791,7 @@ footer .fa-github {
     animation: pulseGradient 30s ease infinite;
     width: 100%; /* Ensure feature section takes full width */
     box-sizing: border-box; /* Include padding in width calculation */
+    overflow: hidden; /* Prevent scrollbar */
 }
 
 @keyframes pulseGradient {
@@ -860,33 +865,71 @@ footer .fa-github {
 @media (max-width: 768px) {
     .feature-section {
         grid-template-columns: 1fr;
+        padding: 1.5rem 1rem;
+        gap: 2em; /* Reduced gap for mobile */
+        overflow: hidden;
+    }
+
+    body {
+        width: 100vw;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        width: 100vw;
+        max-width: 100%;
         padding: 2rem 1rem;
-        width: 100%;
-        overflow: hidden; /* Prevent horizontal scroll */
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .service-item {
+        padding: 1rem; /* Reduced from 2em */
     }
 
     .feature-content {
         padding: 1rem;
         margin-bottom: 1rem;
-        width: 100%;
-        min-width: auto;
-        text-align: right; /* Center content on mobile */
-        align-items: right;
     }
+}
 
-    .feature-image {
-        width: 100%;
+/* Add specific handling for landscape orientation */
+@media (max-width: 900px) and (orientation: landscape) {
+    body {
+        width: 100vw;
         max-width: 100%;
-        min-width: auto;
+        overflow-x: hidden;
     }
 
-    .button-group {
-        justify-content: center; /* Center buttons on mobile */
+    header {
+        padding: 1.5rem 1rem; /* Reduced padding for landscape */
     }
 
-    img {
+    section {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .feature-section {
+        padding: 1rem;
+        width: 100vw;
         max-width: 100%;
-        height: auto;
+    }
+
+    /* Adjust font sizes for landscape */
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
     }
 }
 
@@ -1558,6 +1601,87 @@ header {
 .rating:hover label:hover,
 .rating:hover label:hover ~ label {
     color: var(--accent);
+}
+
+/* Update section padding for mobile */
+@media (max-width: 768px) and (hover: none) {  /* Only apply to touch devices */
+    section {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .feature-section {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1rem;
+        width: 100vw;
+        max-width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100vw;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        width: 100vw;
+        max-width: 100%;
+        padding: 2rem 1rem;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .service-item {
+        padding: 1rem;
+    }
+
+    .feature-content {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Add specific handling for landscape orientation on mobile devices */
+@media (max-width: 1200px) and (orientation: landscape) and (hover: none) {  /* Only apply to touch devices */
+    body {
+        width: 100vw;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    section {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .feature-section {
+        padding: 1rem;
+        width: 100vw;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
 }
 
 

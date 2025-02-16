@@ -808,14 +808,16 @@ footer .fa-github {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    min-width: 420px;
+    width: 100%;
+    min-width: auto; /* Remove fixed min-width */
+    max-width: 100%; /* Ensure content doesn't overflow */
 }
 
 .feature-image {
     width: 100%;
     height: auto;
     max-width: 420px;
-    min-width: 420px;
+    min-width: auto; /* Remove fixed min-width */
     overflow: visible;
     position: relative;
     display: inline-block;
@@ -858,38 +860,32 @@ footer .fa-github {
     .feature-section {
         grid-template-columns: 1fr;
         padding: 2rem 1rem;
+        width: 100%;
+        overflow: hidden; /* Prevent horizontal scroll */
     }
 
     .feature-content {
         padding: 1rem;
         margin-bottom: 1rem;
+        width: 100%;
+        min-width: auto;
+        text-align: center; /* Center content on mobile */
+        align-items: center;
     }
 
     .feature-image {
+        width: 100%;
         max-width: 100%;
         min-width: auto;
     }
 
-    header {
-        padding: 2rem 1rem;
-        text-align: center; /* Center header text */
+    .button-group {
+        justify-content: center; /* Center buttons on mobile */
     }
 
-    header h1 {
-        font-size: 2rem; /* Adjust font size for smaller screens */
-    }
-
-    .subtitle {
-        font-size: 1rem; /* Adjust subtitle size */
-    }
-
-    .btn, .btn-internal, .btn-external, .btn-orcid, .btn-github {
-        font-size: 0.9rem;
-    }
-
-    .engaging-text1, .engaging-text2, .engaging-text3 {
-        margin: 10px auto;
-        text-align: center;
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
 

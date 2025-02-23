@@ -24,6 +24,9 @@ body {
     background: var(--background);
     font-size: 16px; /* Base font size */
     overflow-x: hidden; /* Prevent horizontal overflow */
+    min-height: 100vh; /* Ensure body is at least viewport height */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
 }
 
 header {
@@ -591,7 +594,7 @@ footer {
     background: var(--footer-color);
     color: white;
     padding: 1em;
-    margin-top: 2em;
+    margin-top: auto; /* Push footer to bottom */
 }
 
 footer a {

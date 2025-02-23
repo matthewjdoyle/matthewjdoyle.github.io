@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Turbulence Research: A PhD Journey | matthewjdoyle</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png?v=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?v=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png?v=1.0">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../article-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="../../" class="home-button"><i class="fas fa-home"></i></a>
+        <a href="../index.html" class="back-to-articles"><i class="fas fa-arrow-left"></i> Back to Articles</a>
+    </header>
+
+    <article class="article-full">
+        <div class="article-header">
+            <div class="article-meta-top">
+                <div class="article-tags">
+                    <span class="tag">Physics</span>
+                </div>
+                <div class="article-info">
+                    <span><i class="far fa-clock"></i> 4 min read</span>
+                    <span><i class="far fa-calendar"></i> Feb 22, 2024</span>
+                </div>
+            </div>
+            <h1>What it was like to study Quantum Turbulence for a PhD</h1>
+            <p class="article-subtitle">A journey through my doctoral research on quantum turbulence in superfluid helium at absolute zero temperature, combining computational modeling with experimental techniques.</p>
+            <div class="author-info">
+                <img src="../../about/portrait.JPEG" alt="Matthew J. Doyle" class="author-image">
+                <div class="author-details">
+                    <span class="author-name">Matthew J. Doyle</span>
+                    <span class="author-title">Quantum Turbulence Researcher</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content-wrapper">
+            <div class="table-of-contents">
+                <h3>Contents</h3>
+                <ul id="toc-list">
+                    <!-- Dynamically populated by JavaScript -->
+                </ul>
+            </div>
+
+            <div class="article-content">
+                <section id="introduction">
+                    <h2>Introduction</h2>
+                    <p>In 2024, I completed my doctoral thesis at the University of Manchester, focusing on quantum turbulence in superfluid helium-4 in the zero temperature limit. This research combined advanced numerical simulations with experimental techniques to understand the behavior of quantum vortices in superfluid flows.</p>
+                </section>
+
+                <section id="research-pivot">
+                    <h2>Adapting to Challenges</h2>
+                    <p>The COVID-19 pandemic significantly impacted the initial direction of my research. During the first 4-5 months, laboratory access was restricted, leading to a strategic pivot in my research approach. While my original plan involved a pipe flow experiment to study superfluid helium-4 pressure drop at absolute zero temperature, circumstances led to a greater focus on numerical simulations.</p>
+                    <p>The challenges extended beyond just access restrictions - the reduced availability and increasing costs of liquid helium meant that running multiple simultaneous experiments became unfeasible. This situation prompted an evolution in my research methodology.</p>
+                </section>
+
+                <section id="computational-studies">
+                    <h2>Computational Investigations</h2>
+                    <p>The bulk of my thesis focused on numerical simulations of quantum vortices in superfluid helium-4 at absolute zero temperature. These simulations provided crucial insights into vortex-surface interactions and the dynamics of quantum turbulence. The computational approach allowed us to explore phenomena that would be challenging to observe directly in experimental settings.</p>
+                    
+                    <div class="embedded-content">
+                        <iframe 
+                            src="../../vortex-animations/index.html?embedded=true" 
+                            title="Vortex Animations Gallery"
+                            class="gallery-preview"
+                            style="width: 100%; height: 600px; border: none; border-radius: 12px; background: var(--surface); margin: 2rem 0;"
+                        ></iframe>
+                     </div>
+                </section>
+
+                <section id="experimental-contribution">
+                    <h2>Experimental Work</h2>
+                    <p>Following the cancellation of the original pipe flow experiment, I contributed to an alternative experimental project within our research group. This work focused on visualizing quantum vortices in superfluid helium-4 at absolute zero temperature. Interestingly, the scale of tracer particles examined in these experiments was comparable to the surface roughness considered in my simulation work, creating an unexpected bridge between the computational and experimental aspects of my research.</p>
+                </section>
+
+                <section id="conclusion">
+                    <h2>Research Impact</h2>
+                    <p>Despite the unexpected challenges and changes in direction, both the computational and experimental studies contributed significantly to our understanding of quantum turbulence in superfluid helium-4 at absolute zero temperature. The research particularly advanced our knowledge of vortex-surface pinning and vortex-particle binding mechanics, demonstrating how adaptability in research methodology can lead to valuable scientific insights.</p>
+                </section>
+
+                <div class="article-footer">
+                    <div class="share-buttons">
+                        <button onclick="shareArticle('twitter')" class="share-btn twitter">
+                            <i class="fab fa-twitter"></i> Share on Twitter
+                        </button>
+                        <button onclick="shareArticle('linkedin')" class="share-btn linkedin">
+                            <i class="fab fa-linkedin"></i> Share on LinkedIn
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <a href="../../"><i class="fas fa-home"></i> Home</a>
+        <a href="../../about"><i class="fas fa-user"></i> About Me</a>
+        <a href="../../publications"><i class="fas fa-book"></i> Publications</a>
+        <div style="text-align: right;">
+            <a href="https://orcid.org/0000-0002-6994-1832"><i class="fab fa-orcid"></i> ORCID</a>
+            <a href="https://github.com/matthewjdoyle"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/matthewd0yle"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        // Generate Table of Contents
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocList = document.getElementById('toc-list');
+            const headings = document.querySelectorAll('.article-content h2');
+            
+            headings.forEach(heading => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${heading.id}`;
+                a.textContent = heading.textContent;
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        });
+
+        // Sharing functionality
+        function shareArticle(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            
+            let shareUrl;
+            if (platform === 'twitter') {
+                shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+            } else if (platform === 'linkedin') {
+                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+            }
+            
+            window.open(shareUrl, '_blank');
+        }
+    </script>
+</body>
+</html> 

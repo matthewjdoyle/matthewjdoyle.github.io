@@ -50,10 +50,12 @@
 </br>
 
     <section>
-        <h2><i class="fas fa-user-graduate"></i> Academic Background</h2>
+        <h2><i class="fas fa-user-graduate"></i> Background</h2>
         <div class="academic-background-container">
             <div class="academic-text">
-                <p>I completed my PhD in Condensed Matter Physics at The University of Manchester, specialising in quantum turbulence and quantum fluid dynamics. With over 4 years of teaching experience at various higher-education levels, I have developed a deep understanding of how to effectively communicate complex physics concepts to students. My research background, combined with my passion for education, allows me to bring both theoretical depth and practical insights to my teaching.</p>
+                <p>I'm a dedicated technologist and physicist with a passion for harnessing technology and physics to drive meaningful change. My work is fueled by an enduring curiosity about how the world works and a commitment to using innovative tools to improve lives and empower communities. <br><br>
+                    With a background rooted in hands-on experience and a deep understanding of scientific principles, I've earned knowledge that bridges the gap between theory and practical applications. Whether it's developing new technology solutions or exploring the intricate laws of physics, I'm constantly seeking for ways to advance collective understanding and create a positive impact.<br><br>
+                    Currently I am offering my freelance services as a maths/physics/coding tutor and as a website developer. </p>
                 <p><a href="./../credentials" class="btn"><i class="fas fa-file-alt"></i> Qualifications and Experience</a></p>
             </div>
             <div class="portrait-container">
@@ -82,7 +84,16 @@
                     </div>
                 </div>
 
-
+                <div class="timeline-item visible">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-title">Started Secondary School</div>
+                        <div class="timeline-description">SNA Academy (formerly Dayncourt Comprehensive)</div>
+                    </div>
+                    <div class="timeline-world-event">
+                        <div class="timeline-description">2009: Bitcoin was launched with a price of <£0.01 </div>
+                    </div>
+                </div>
 
                 <div class="timeline-item visible">
                     <div class="timeline-content">
@@ -259,6 +270,16 @@
             container.style.transform = `translateX(${newPosition}px)`;
         }
 
+        // Initialize slider at the end (current year)
+        function initializeTimelinePosition() {
+            const timelineWidth = timeline.offsetWidth - slider.offsetWidth;
+            slider.style.left = `${timelineWidth}px`; // Set slider to the end
+            
+            // Calculate and set the container position
+            const maxScroll = container.scrollWidth - timeline.offsetWidth;
+            container.style.transform = `translateX(${-maxScroll}px)`;
+        }
+
         // Update existing event listeners to toggle scroll
         slider.addEventListener('mousedown', (e) => {
             isDragging = true;
@@ -328,11 +349,14 @@
             }
         }, { passive: false });
 
-        // Initialize slider position
-        updateSliderPosition(0);
+        // Initialize slider at the end position
+        initializeTimelinePosition();
 
         // Prevent text selection while dragging
         slider.addEventListener('selectstart', (e) => e.preventDefault());
+
+        // Re-initialize on window resize
+        window.addEventListener('resize', initializeTimelinePosition);
     });
     </script>
 

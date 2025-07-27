@@ -1,132 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>matthewjdoyle</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png?v=1.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png?v=1.0">
-    <link rel="stylesheet" href="styles.css">
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr Matt Doyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      :root {
+        /* Viridis Inspired Palette with Purple Accent */
+        --color-viridis-bg-teal: #000f0d;    /* Deepest, for overall page background - Almost Black Teal */
+        --color-viridis-dark-blue: #3b528b;   /* Dark blue, for main section backgrounds */
+        --color-viridis-blue-teal: #2c728e;  /* Blue-teal, for card backgrounds or darker UI elements */
+        --color-viridis-teal: #21918c;       /* Teal, for accents like tags */
+        --color-viridis-green: #05e68c;      /* Green, for secondary accents */
+        --color-accent-purple: #9B5DE5;      /* New primary accent purple */
+        --color-viridis-yellow-heading: #fde725; /* Viridis yellow for card headings */
 
+        /* Text & UI Colors */
+        --color-text-bright: #f0f8ff;       /* AliceBlue - for headings, prominent text */
+        --color-text-main: #d1d5db;         /* Tailwind Gray 300 - for main body text */
+        --color-text-subtle-yellow: #fcfdbf;/* Light yellow for subtle highlights (e.g., old star_yellow) - Kept for potential minor use */
+        
+        /* Mapping to original semantic names (for Tailwind config) */
+        --color-space-deep: var(--color-viridis-bg-teal);
+        --color-space-navy: var(--color-viridis-dark-blue);
+        --color-space-purple: var(--color-viridis-teal);     /* Was for accents/tags, now Viridis Teal */
+        --color-electric-blue: var(--color-accent-purple);  /* Primary accent - NOW PURPLE */
+        --color-nebula-pink: var(--color-viridis-green);    /* Secondary accent - REMAINS GREEN */
+        
+        --color-star-white: var(--color-text-bright);
+        --color-star-yellow: var(--color-text-subtle-yellow); 
+        
+        --color-ui-dark: var(--color-viridis-blue-teal);   /* Card backgrounds */
+        --color-ui-light-text: var(--color-text-main);
+        --color-ui-border: var(--color-viridis-blue-teal); /* Borders, lines - can be same as cards or a slightly darker variant */
+      }
+      body {
+        background-color: var(--color-space-deep);
+        color: var(--color-ui-light-text);
+        font-family: 'Inter', sans-serif;
+        transform: scale(0.8);
+        transform-origin: top left;
+        width: 133.33%; /* Compensate for the scale to maintain full width */
+        height: 133.33vh; /* Compensate for the scale to maintain full height */
+      }
+      /* Fix for potential issues with libraries disabling scroll */
+      body.react-tooltip-disable-scroll {
+          overflow: hidden;
+      }
+      .font-poppins {
+        font-family: 'Poppins', sans-serif;
+      }
+      .font-lacquer {
+        font-family: 'Lacquer', cursive;
+      }
+      .font-jetbrains {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      /* Utility to hide scrollbars */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            zIndex: {
+              '60': '60', // For popup overlay
+              '70': '70', // For popup content
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              poppins: ['Poppins', 'sans-serif'],
+              lacquer: ['Lacquer', 'cursive'], 
+              jetbrains: ['JetBrains Mono', 'monospace'], // Added JetBrains Mono
+            },
+            colors: {
+              space_deep: 'var(--color-space-deep)',
+              space_navy: 'var(--color-space-navy)',
+              space_purple: 'var(--color-space-purple)', 
+              electric_blue: 'var(--color-electric-blue)', // Will now be purple
+              nebula_pink: 'var(--color-nebula-pink)', 
+              star_white: 'var(--color-star-white)',
+              star_yellow: 'var(--color-star-yellow)',
+              ui_dark: 'var(--color-ui-dark)',
+              ui_light_text: 'var(--color-ui-light-text)',
+              ui_border: 'var(--color-ui-border)',
+              viridis_yellow_heading: 'var(--color-viridis-yellow-heading)',
 
-
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZV7QZ6B20"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5ZV7QZ6B20');
+              primary: { // New Purple Accent
+                DEFAULT: 'var(--color-electric-blue)', 
+                light: '#B589D6', // Lighter Purple
+                dark: '#7B3FB8',   // Darker Purple
+              },
+              secondary: { // Viridis Green (remains the same)
+                DEFAULT: 'var(--color-nebula-pink)', 
+                light: '#84d992', // Lighter Green
+                dark: '#4bb05a',   // Darker Green
+              },
+              neutral: { 
+                light: 'var(--color-ui-dark)',      /* Card BG: Viridis Blue-Teal */
+                DEFAULT: 'var(--color-space-navy)', /* Section BG: Viridis Dark Blue */
+                dark: 'var(--color-ui-light-text)', /* Main body text: Light Gray */
+                darker: 'var(--color-star-white)',  /* Prominent text: AliceBlue */
+              }
+            },
+            backgroundImage: {
+              'hero-pattern': "url('https://www.transparenttextures.com/patterns/stardust.png')", 
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+              'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+              'slide-out-left': 'slideOutLeft 0.3s ease-in-out forwards',
+              'slide-in-from-right': 'slideInFromRight 0.8s ease-out forwards',
+              'slide-out-right': 'slideOutRight 0.3s ease-in-out forwards',
+              'slide-in-from-left': 'slideInFromLeft 0.8s ease-out forwards', // Re-added if needed elsewhere
+              'reveal-up': 'revealUp 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards',
+              'fade-in-word': 'fadeInWord 0.5s ease-out forwards',
+              // Carousel Animations
+              'carousel-item-fade-in': 'carouselItemFadeIn 0.5s ease-out forwards',
+              'carousel-item-slide-in-right': 'carouselItemSlideInFromRight 0.5s ease-out forwards',
+              'carousel-item-slide-out-left': 'carouselItemSlideOutToLeft 0.3s ease-in forwards',
+              'carousel-item-slide-in-left': 'carouselItemSlideInFromLeft 0.5s ease-out forwards',
+              'carousel-item-slide-out-right': 'carouselItemSlideOutToRight 0.3s ease-in forwards',
+              // Popup Animations
+              'fade-in-overlay': 'fadeInOverlay 0.3s ease-out forwards',
+              'fade-in-scale-up': 'fadeInScaleUp 0.4s ease-out 0.1s forwards', // Slight delay for content (kept for potential fallback)
+              'fast-slide-in-from-bottom': 'fastSlideInFromBottom 0.4s ease-out forwards',
+              'animated-glowing-border': 'animated-glowing-border 10s linear infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideOutLeft: {
+                '0%': { transform: 'translateX(0)', opacity: '1' },
+                '100%': { transform: 'translateX(-100%)', opacity: '0' }
+              },
+              slideInFromRight: {
+                '0%': { transform: 'translateX(50%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' }
+              },
+              slideOutRight: {
+                '0%': { transform: 'translateX(0)', opacity: '1' },
+                '100%': { transform: 'translateX(100%)', opacity: '0' }
+              },
+              slideInFromLeft: { // Re-added if needed elsewhere
+                '0%': { transform: 'translateX(-50%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' }
+              },
+              revealUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              fadeInWord: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              // Carousel Keyframes
+              carouselItemFadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              carouselItemSlideInFromRight: {
+                '0%': { transform: 'translateX(100%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              carouselItemSlideOutToLeft: {
+                '0%': { transform: 'translateX(0)', opacity: '1' },
+                '100%': { transform: 'translateX(-100%)', opacity: '0' },
+              },
+              carouselItemSlideInFromLeft: {
+                '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              carouselItemSlideOutToRight: {
+                '0%': { transform: 'translateX(0)', opacity: '1' },
+                '100%': { transform: 'translateX(100%)', opacity: '0' },
+              },
+              // Popup Keyframes
+              fadeInOverlay: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInScaleUp: { // Kept for potential fallback, not primary use for this popup anymore
+                '0%': { opacity: '0', transform: 'scale(0.95) translateY(10px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0px)' },
+              },
+              fastSlideInFromBottom: {
+                '0%': { opacity: '0', transform: 'translateY(50%)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'animated-glowing-border': {
+                '0%, 100%': {
+                  borderColor: 'var(--color-electric-blue)', /* Purple */
+                  boxShadow: '0 0 15px var(--color-electric-blue), 0 0 25px var(--color-electric-blue)'
+                },
+                '25%': {
+                  borderColor: 'var(--color-nebula-pink)', /* Green */
+                  boxShadow: '0 0 15px var(--color-nebula-pink), 0 0 25px var(--color-nebula-pink)'
+                },
+                '50%': {
+                  borderColor: 'var(--color-viridis-yellow-heading)', /* Yellow */
+                  boxShadow: '0 0 15px var(--color-viridis-yellow-heading), 0 0 25px var(--color-viridis-yellow-heading)'
+                },
+                '75%': {
+                  borderColor: 'var(--color-space-purple)', /* Viridis Teal */
+                  boxShadow: '0 0 15px var(--color-space-purple), 0 0 25px var(--color-space-purple)'
+                },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Lacquer&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
 </script>
-<body>
-    <header>
-        <a href="https://matthewjdoyle.github.io" class="home-button"><i class="fas fa-home"></i></a>
-        <h1>Matthew J. Doyle, PhD</h1>
-        <p class="subtitle">Quantum Turbulence Researcher & Personal Tutor</p>
-    </header>
-
-
-
-    <section class="feature-section">
-        <div class="feature-content">
-            <div class="button-group"><!--general internal web pages-->
-                <a href="about" class="btn-internal" title="About Me">
-                    <i class="fas fa-user"></i><span class="tooltip">About Me</span>
-                </a>
-
-                <a href="publications" class="btn-internal" title="Publications">
-                    <i class="fas fa-book"></i><span class="tooltip">My Publications</span>
-                </a>
-
-                <!-- <a href="quantum-turbulence" class="btn-internal" title="Physics Research">
-                    <i class="fas fa-atom"></i><span class="tooltip">Physics Research</span>
-                </a> -->
-
-                <!-- <a href="game" class="btn-internal" title="Play Games">
-                    <i class="fas fa-gamepad"></i>
-                    <span class="tooltip">Play Games</span>
-                </a> -->
-
-            </div>
-            <h2> Physicist, Programmer, Tutor</h2>
-            <p>Passionate about making creative innovations and solving chaotic problems with numbers and code.</p>
-
-            <div class="button-group">
-                <h4>Services</h4>
-                <a href="tutor" class="btn">
-
-
-                    <i class="fas fa-chalkboard-teacher"></i> Tutoring
-                </a>
-                <a href="webdesign" class="btn">
-                    <i class="fas fa-laptop-code"></i> Web Design
-                </a>
-            </div>
-            <div class="button-group">
-                <h4>Profiles</h4>
-                <a href="https://orcid.org/0000-0002-6994-1832" class="btn-orcid">
-                    <i class="fab fa-orcid"></i>
-                </a>
-                <a href="https://github.com/matthewjdoyle" class="btn-github">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/matthewd0yle/" class="btn-external">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-
-        </div>
-        <div class="feature-image">
-            <div class="feature-image-hover" data-tooltip="Vortex Tangle Visualization of Superfluid Helium Flow Between Rough Walls in the T=0 Limit">
-                <img src="./vortex-tangle-1.gif" 
-                    alt="Vortex Tangle Visualization in the T=0 Limit"
-                    class="portrait-image"/>
-            </div>
-        </div>
-    </section>
-
-    <!-- <div class="spacer"></div> -->
-     <br>
-
-
-    <div id="open-to-work-section"><!-- Add class="hidden" when not needed -->    
-        <section class="open-to-work">
-            <h2><i class="fas fa-briefcase"></i> Open to Work</h2>
-            <p>I am currently open to new opportunities in research, data science, and software development. My expertise includes:</p>
-            <ul>
-                <li>Quantum Turbulence and Fluid Dynamics</li>
-                <li>Numerical Modelling and Simulation</li>
-                <li>High-Performance Computing</li>
-                <li>Academic Research and Teaching</li>
-                <li>Scientific Programming & Software Development</li>
-            </ul>
-            <p>Immediately available for positions in Manchester or remote work within the UK.</p>
-            <p>
-                <a href="https://www.linkedin.com/in/matthewd0yle/" class="btn"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
-                <a href="credentials" class="btn"><i class="fas fa-file-alt"></i> CV</a>
-            </p>
-        </section>
-    </div>
-</br>
-    <section>
-        <h2><a href="tutor" class="clickable-header">
-            <i class="fas fa-chalkboard-teacher"></i> Physics Tutoring
-        </a></h2>
-        <p>Offering specialized tutoring in physics, mathematics and coding, from GCSE to undergraduate level. Click to learn more about tutoring services and booking information!</p>
-    </section>
-
-    <section>
-        <h2><a href="webdesign" class="clickable-header">
-            <i class="fas fa-laptop-code"></i> Web Design
-        </a> </h2>
-        <p>I offer bespoke web design services to help you carve out your own online platform. Click to learn more about web design services and get a quote!</p>
-    </section>
-    <script src="./scripts/animations.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-space_deep text-ui_light_text">
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
 </body>
-</html> 
+</html>

@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Viridis Inspired Palette with Purple Accent */
+  --color-viridis-bg-teal: #000f0d;    /* Deepest, for overall page background - Almost Black Teal */
+  --color-viridis-dark-blue: #3b528b;   /* Dark blue, for main section backgrounds */
+  --color-viridis-blue-teal: #2c728e;  /* Blue-teal, for card backgrounds or darker UI elements */
+  --color-viridis-teal: #21918c;       /* Teal, for accents like tags */
+  --color-viridis-green: #05e68c;      /* Green, for secondary accents */
+  --color-accent-purple: #9B5DE5;      /* New primary accent purple */
+  --color-viridis-yellow-heading: #fde725; /* Viridis yellow for card headings */
+
+  /* Text & UI Colors */
+  --color-text-bright: #f0f8ff;       /* AliceBlue - for headings, prominent text */
+  --color-text-main: #d1d5db;         /* Tailwind Gray 300 - for main body text */
+  --color-text-subtle-yellow: #fcfdbf;/* Light yellow for subtle highlights (e.g., old star_yellow) - Kept for potential minor use */
+  
+  /* Mapping to original semantic names (for Tailwind config) */
+  --color-space-deep: var(--color-viridis-bg-teal);
+  --color-space-navy: var(--color-viridis-dark-blue);
+  --color-space-purple: var(--color-viridis-teal);     /* Was for accents/tags, now Viridis Teal */
+  --color-electric-blue: var(--color-accent-purple);  /* Primary accent - NOW PURPLE */
+  --color-nebula-pink: var(--color-viridis-green);    /* Secondary accent - REMAINS GREEN */
+  
+  --color-star-white: var(--color-text-bright);
+  --color-star-yellow: var(--color-text-subtle-yellow); 
+  
+  --color-ui-dark: var(--color-viridis-blue-teal);   /* Card backgrounds */
+  --color-ui-light-text: var(--color-text-main);
+  --color-ui-border: var(--color-viridis-blue-teal); /* Borders, lines - can be same as cards or a slightly darker variant */
+}
+
+body {
+  background-color: var(--color-space-deep);
+  color: var(--color-ui-light-text);
+  font-family: 'Inter', sans-serif;
+  transform: scale(0.8);
+  transform-origin: top left;
+  width: 133.33%; /* Compensate for the scale to maintain full width */
+  height: 133.33vh; /* Compensate for the scale to maintain full height */
+}
+
+/* Fix for potential issues with libraries disabling scroll */
+body.react-tooltip-disable-scroll {
+    overflow: hidden;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-lacquer {
+  font-family: 'Lacquer', cursive;
+}
+
+.font-jetbrains {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Utility to hide scrollbars */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 

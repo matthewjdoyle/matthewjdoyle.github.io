@@ -34,6 +34,15 @@ jobs:
       - name: Build
         run: npm run build
         
+      - name: Verify build output
+        run: |
+          echo "Checking dist folder contents:"
+          ls -la dist/
+          echo "Checking if index.html exists:"
+          test -f dist/index.html && echo "✅ index.html exists" || echo "❌ index.html missing"
+          echo "Checking if assets folder exists:"
+          test -d dist/assets && echo "✅ assets folder exists" || echo "❌ assets folder missing"
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
